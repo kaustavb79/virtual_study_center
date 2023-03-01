@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            html { height: 100% }
+            body { height: 100%; margin: 0px; padding: 0px }
+            #map_canvas { height: 100% ; width:100%;}
+            </style>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    </head>
+
+    <body onload="initialize()">
+        <div id="info"></div>
+        <div><input type="button" onclick="stopZoeken()" value="Stop Zoeken" />&nbsp;&nbsp;&nbsp;<input type="button" onclick="stopTracking()" value="Stop Tracking" /></div>
+        <div id="map_canvas" style="width:500px; height:500px"></div>
+
+            <script type="text/javascript">
+
+            var previousPosition = null;
+            var startId;
+            var trackId;
+
+            function initialize() {
+                document.getElementById("info").innerHTML = "Looking for your position...";
+
+                if (navigator.geolocation) {
+                    startId = navigator.geolocation.watchPosition(function(position) {
+                        var startPos = position;
+                        var startAccuracy = startPos.coords.accuracy;
+                        document.getElementById("info").innerHTML = "Nearby... approx." + startAccuracy + " meter...";
+                        if(startAccuracy < 300) {
+                            document.getElementById("info").innerHTML = "Found... inside " + startAccuracy + " meter...";
+                            map = new google.maps.Map(document.getElementById("map_canvas"), {
+                                zoom: 18,
+                                center: new google.maps.LatLng(startPos.coords.latitude, startPos.coords.longitude),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                                });
+
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(startPos.coords.latitude, startPos.coords.longitude),
+                                map: map
+                                });
+                            navigator.geolocation.clearWatch(startId);
+                            document.getElementById("info").innerHTML = "Tracking will start in 5 seconds...";
+                            setTimeout(function(){startTracking()},5000);
+                        }
+                        }, function(error) {
+                        alert("Error code: " + error.code);
+                        // error.code can be:
+                        //   0: unknown error
+                        //   1: permission denied
+                        //   2: position unavailable (error response from locaton provider)
+                        //   3: timed out
+                        }, {maximumAge:1000, enableHighAccuracy: true});
+
+                }
+                else {
+                    alert("GeoLocation is not supported!");
+                }
+
+            }
+
+            function startTracking() {
+
+                document.getElementById("info").innerHTML = "Tracking started...";
+
+                trackId = navigator.geolocation.watchPosition(successCallback, null, {maximumAge:1000, timeout:60000, enableHighAccuracy:true});
+
+                function successCallback(position){
+                    map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+                     if (previousPosition){
+                        var newLineCoordinates = [
+                                                  new google.maps.LatLng(previousPosition.coords.latitude, previousPosition.coords.longitude),
+                                                  new google.maps.LatLng(position.coords.latitude, position.coords.longitude)];
+
+                        var newLine = new google.maps.Polyline({
+                                                               path: newLineCoordinates,
+                                                               strokeColor: "#FF0000",
+                                                               strokeOpacity: 1.0,
+                                                               strokeWeight: 2
+                                                               });
+                        newLine.setMap(map);
+                    }
+                    previousPosition = position;
+                };
+
+            }
+
+            function stopZoeken() {
+                navigator.geolocation.clearWatch(startId);
+                alert("Search stopped!");
+            }
+
+            function stopTracking() {
+                navigator.geolocation.clearWatch(trackId);
+                alert("Tracking stopped!");
+            }
+
+            </script>
+
+    </body>
+
+</html>

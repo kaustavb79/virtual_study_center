@@ -1,0 +1,722 @@
+/* Main Top Nav bar start*/
+.top_nav_a.active{
+    border-bottom: 1px solid var(--border-bottom);
+    color: var(--text);
+}
+#top_nav_bar{
+    background-color: #fff;
+}
+#top_nav_bar div{
+/*
+    padding: 0 5px;
+*/
+}
+#top_nav_bar a:hover{
+    color: var(--text);
+}
+/* Main Top Nav bar end*/
+
+
+/* Sub Top Nav bar start*/
+.topnav a.active{
+    border-bottom: 1px solid var(--border-bottom);
+}
+/* Sub Top Nav bar end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************/
+/* Luein top nav bar MAIN css start */
+/************************************/
+
+.menu_swap{
+    padding: 10px;
+    /*background-color: red;*/
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*z-index: 1;*/
+    display:none;
+}
+.avtar_swap{
+    padding: 10px;
+    /*background-color: blue;*/
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    /*z-index: 1;*/
+    display:none;
+}
+.luein-top-nav-bar-container{
+    width: 100%;
+    font-family: Raleway, sans-serif;
+    line-height: 1;
+    z-index: 102;
+    background-color: #ffffff;
+    border-bottom: 1px solid #c6c2c7;
+    /*
+    box-shadow: 0px 2px 7px #d6d6d6;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%);
+    */
+    position: fixed;
+    top:0px;
+    left:0;
+}
+.ltnb-header{
+    display:flex;
+    padding:0 10px;
+    height: 45px;
+    align-items: center;
+}
+.ltnb-header::after {
+
+}
+.ltnb-nav{
+    display:flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    height: inherit;
+    width: 100%;
+}
+.ltnb-nav > * {
+
+}
+.ltnb-a{
+    text-decoration: none;
+    padding: 0px 5px;
+    line-height:24px;
+    border-radius: 3px;
+    /*
+    font-weight:bold;
+    */
+    color:#6B6B6B;
+    display: flex;
+    align-items: center;
+}
+.ltnb-a svg{
+    width:24px;
+    height:24px;
+}
+.ltnb-a:hover:not(.logout):not(.ltnb-logo-a){
+    /*
+    background-color: #ededed;
+    */
+    color:var(--text);
+}
+.ltnb-a.logout:hover{
+    background-color: #e84949;
+    color: #ffffff;
+}
+.ltnb-a.logout:hover svg g{
+    fill: #ffffff;
+}
+.ltnb-a.active{
+    /*
+    background-color: var(--text);
+    */
+    color:var(--active);
+}
+.ltnb-login-div .ltnb-a.active{
+/*
+    background-color: #fb3917bd;
+    color:#fff;
+    */
+}
+.ltnb-a.active::after{
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    right: 10px;
+    content: "";
+    height: 1px;
+    background-color: rgb(37, 115, 232);
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+}
+.ltnb-a img{
+    /*
+    border-radius: 50%;
+    width: 25px;
+    */
+    height: 25px;
+}
+.ltnb-logo-a{
+
+}
+.ltnb-logo-img{
+    max-height:40px;
+}
+.ltnb-span1{
+    padding-left:10px;
+}
+.ltnb-primary-actions-div .ltnb-span1{
+    padding-left:0px;
+}
+.ltnb-hamburger-fafa-div .ltnb-span1, .ltnb-login-div .ltnb-span1{
+    padding-left:0px;
+}
+
+.ltnb-span2{
+    display: flex;
+}
+.ltnb-primary-actions-div{
+    display:flex;
+    height: 100%;
+    align-items: center;
+    margin-left:auto;
+    z-index: 1;
+}
+.ltnb-primary-actions-div > * {
+    margin: 0 4px;
+}
+.ltnb-primary-actions-div-inner{
+    display:flex;
+    height: 100%;
+    align-items: center;
+}
+
+.ltnb-snb-container{
+    display:none;
+}
+.ltnb-snb-div{
+
+}
+.ltnb-div{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px;
+}
+.ltnb-home-div{
+
+}
+.ltnb-blogs-div{
+
+}
+.ltnb-blogs-dash-div{
+
+}
+.ltnb-jobs-div{
+
+}
+.ltnb-emp-div{
+
+}
+.ltnb-cnd-div{
+
+}
+.ltnb-help-div{
+
+}
+.ltnb-contact-div{
+
+}
+.ltnb-more-div{
+
+}
+.ltnb-hamburger-fafa-div{
+    display:none;
+}
+.ltnb-btn{
+
+}
+.ltnb-secondary-actions-div{
+    display:flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+
+
+}
+.ltnb-secondary-actions-div > * {
+
+}
+.ltnb-login-div{
+
+}
+.ltnb-login-div .ltnb-a{
+    color:#fb3917bd;
+}
+.ltnb-logout-div{
+
+}
+.ltnb-logout-div a{
+    border-radius: 50px;
+    padding: 0;
+}
+.ltnb-role-for{
+    display: flex;
+    padding: 0px 3px;
+    border-radius: 1px 8px;
+    border: 1px solid #aeaeae;
+}
+.ltnb-role-for.emp{
+    background-color: #ff87872e;
+    color: #000;
+}
+.ltnb-role-for.rec{
+    background-color:#7b7bff2e;
+    color: #000;
+}
+.ltnb-role-for.cnd{
+    background-color:#ffff772e;
+    color: #000;
+}
+
+.ltnb-logout-div-container{
+    position:absolute;
+    top:50px;
+    right:20px;
+    background-color:#fff;
+
+
+    background-color: white;
+    border-radius: 4px;
+    text-align: start;
+    border: 1px solid #c5c5c5;
+    box-shadow: 0px 0px 7px -3px grey;
+    padding:0;
+
+    overflow: auto;
+    max-height: 50vh;
+    flex-wrap: wrap;
+    visibility: hidden;
+    width:auto;
+    z-index:1;
+}
+.ltnb-logout-div-container-inner{
+
+}
+.ltnb-logout-div-container-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+.ltnb-name{
+    text-transform: uppercase;
+    font-size: 11px;
+    line-height: 1.45455;
+    font-weight: 700;
+    color: rgb(107, 119, 140);
+    font-style: normal;
+    white-space:nowrap;
+}
+.ltnb-email{
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+    outline: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    padding-bottom: 10px;
+    color: #536e92;
+    max-width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 1;
+}
+.ltnb-og-name {
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+    outline: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    color: #536e92;
+    max-width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 1;
+    align-self: center;
+}
+.ltnb-og-type{
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid #eaeaea;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 4px;
+}
+.ltnb-og-type.school{
+    background-color: blue;
+    color: #fff;
+}
+.ltnb-og-type.company{
+    background-color: orange;
+    color: #fff;
+}
+.ltnb-og-type.anganwadi{
+    background-color: brown;
+    color: #fff;
+}
+/* Luein top nav bar MAIN css end */
+
+.lmnb-icon{
+    display: flex;
+}
+
+
+.ltnb-notification-div{
+
+}
+.ltnb-notification-div a{
+    border-radius: 50px;
+    padding: 0;
+}
+.notification-counter-div{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff0000;
+    display: flex;
+    border-radius: 55px;
+    height: 15px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px;
+    min-width: 15px;
+}
+
+
+
+
+/***************************************/
+/* Luein MOBILE nav bar MAIN css start */
+/***************************************/
+.luein-mobile-nav-bar-container{
+    width: 0%;
+    display:none;
+}
+@media screen and (max-width: 768px) {
+    .menu_swap, .avtar_swap{
+        display:block;
+    }
+    .ltnb-header:not(.responsive) .luein-mobile-nav-bar-container{
+        width: 0%;
+        display:none;
+    }
+
+    .luein-mobile-nav-bar-container{
+        border-bottom: 1px solid #c6c2c7;
+        font-family: Raleway, sans-serif;
+        line-height: 1;
+        z-index: 1000;
+        box-shadow: 0px 2px 7px #d6d6d6;
+        display: flex;
+        background-color: #00000089;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        flex-direction: column;
+        overflow: auto;
+        width: 0%;
+        transition: 0.3s;
+    }
+    .lmnb-inner-container{
+        display: flex;
+        background-color: gainsboro;
+        height: 100vh;
+        flex-direction: column;
+        overflow: auto;
+        width: 70%;
+        background-color: #fff;
+        padding-bottom: 40px;
+        margin: 0px;
+        max-width:300px;
+    }
+    .lmnb-close{
+        display: flex;
+        padding: 15px 20px;
+        font-size: 30px;
+        line-height: 16px;
+        margin:0px;
+        z-index: 1;
+        color: var(--text);
+        border-bottom:1px solid #eaeaea;
+        cursor:pointer;
+    }
+    .lmnb-snb-container{
+        padding: 10px 0 10px 20px;
+        border-bottom:10px solid #eaeaea;
+        margin-bottom:10px;
+    }
+    .lmnb-snb-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .lmnb-snb-uploadvideo-div{
+
+    }
+    .lmnb-snb-videolist-div{
+
+    }
+    .lmnb-snb-questionbank-div{
+
+    }
+    .lmnb-snb-profile-divdi{
+
+    }
+    .lmnb-snb-profile-div{
+
+    }
+    .lmnb-snb-user-div{
+
+    }
+    .lmnb-snb-jobs-div{
+
+    }
+    .lmnb-snb-report-div{
+
+    }
+    .lmnb-snb-interview-div{
+
+    }
+    .lmnb-snb-practice-div{
+
+    }
+    .lmnb-snb-billing-div{
+
+    }
+    .lmnb-snb-setting-div{
+
+    }
+    .lmnb-snb-a{
+        text-decoration: none;
+        padding: 0px 5px;
+        line-height: 24px;
+        font-weight: bold;
+        color: grey;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .lmnb-snb-a.active{
+        background-color: var(--text);
+        color: #fff;
+    }
+    .lmnb-snb-a.active svg g{
+        fill: #fff!important;
+    }
+    .lmnb-snb-a:hover:not(.active) {
+        background-color: #ededed;
+    }
+    .lmnb-icon{
+
+    }
+    .lmnb-snb-span1{
+        padding-left:10px;
+        white-space: nowrap;
+    }
+    .lmnb-snb-span2{
+
+    }
+    .lmnb-tnb-container{
+        padding-bottom: 10px;
+    }
+    .lmnb-tnb-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .lmnb-tnb-home-div{
+
+    }
+    .lmnb-tnb-blogs-div{
+
+    }
+    .lmnb-tnb-blogsdash-div{
+
+    }
+    .lmnb-tnb-jobs-div{
+
+    }
+    .lmnb-tnb-emp-div{
+
+    }
+    .lmnb-tnb-cnd-div{
+
+    }
+    .lmnb-tnb-help-div{
+
+    }
+    .lmnb-tnb-help-div{
+
+    }
+    .lmnb-tnb-contact-div{
+
+    }
+    .lmnb-tnb-a{
+        text-decoration: none;
+        padding: 0px 5px;
+        line-height: 24px;
+        font-weight: bold;
+        color: grey;
+        width: 100%;
+        padding: 10px;
+        border-left: 5px solid #fff;
+        display: flex;
+        align-items: center;
+    }
+    .lmnb-tnb-a.active{
+        border-left: 5px solid blue;
+        color: var(--text);
+    }
+    .lmnb-tnb-a.active svg g{
+        fill:var(--text);
+    }
+    .lmnb-tnb-a:hover {
+        background-color: #ededed;
+    }
+    .lmnb-tnb-span1{
+        padding-left:10px;
+        white-space: nowrap;
+    }
+    .lmnb-tnb-span2{
+
+    }
+}
+/* Luein MOBILE nav bar MAIN css end */
+
+
+/******************************************/
+/* Luein top nav bar @MEDIA 600 css start */
+/******************************************/
+/* 1. EXTRA */
+@media screen and (max-width: 768px) {
+    .ltnb-header:not(.responsive) .ltnb-primary-actions-div {
+        display: none;
+        width: 0%;
+    }
+
+    .ltnb-primary-actions-div {
+        display: none;
+        width: 0%;
+    }
+    .ltnb-nav{
+        justify-content: center;
+        width: calc(100% - 70px);
+    }
+    .ltnb-hamburger-fafa-div {
+        display: flex;
+    }
+    .ltnb-hamburger-fafa-div.ltnb-div{
+        width:auto;
+        padding:10px 10px 10px 0;
+    }
+    .ltnb-a.ltnb-logo-a{
+        width:auto;
+    }
+    .ltnb-hamburger-fafa-div .ltnb-a svg{
+        width:24px;
+        height:24px;
+    }
+    .ltnb-a svg{
+        width:30px;
+        height:30px;
+    }
+
+}
+
+/* 2. TOP NAV AVTAR */
+@media screen and (max-width: 768px) {
+    .ltnb-logout-div-container{
+        transition: 0.3s;
+    }
+
+    .ltnb-logout-div-container.ltnb-div{
+        width: 0%;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        max-height: 100vh;
+        background: #00000089;
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        z-index:100;
+    }
+    .ltnb-logout-div-container-inner{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 70%;
+        background-color: #fff;
+        overflow: auto;
+        max-width:300px;
+    }
+    .ltnb-logout-div-container-wrapper{
+        width: auto;
+        padding:20px 0;
+    }
+}
+
+
+/************************************/
+/* Luein top nav bar MAIN css end   */
+/************************************/
+
+.google_translate_element_btn{
+    padding:5px 15px 5px 5px;
+}
+
+.google_translate_element{
+    top:0!important;
+}
+.goog-te-gadget{
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+#google_translate_element select{
+    padding: 10px;
+}

@@ -1,0 +1,142 @@
+{% comment %}
+{% endcomment %}
+<!-- to_scad_teach_cnd_att_failed_by_teach_v1.html -->
+
+
+{% load template_tags %}
+<li class="lh-notification  lh-alert-block {% if notice.unread %}lh-alert-{{ notice.level }} lh-alert-unread{% endif %}"
+    onclick="window.location='{% url 'notifications:mark_as_read' notice.slug %}';">
+    <div class="flx nt-card">
+        <div class="lhn_img_div">
+            <svg version="1.1" width="50" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M129,14.33333h-35.83333c0,3.95958 -3.20708,7.16667 -7.16667,7.16667c-3.95958,0 -7.16667,-3.20708 -7.16667,-7.16667h-35.83333c-7.92275,0 -14.33333,6.41058 -14.33333,14.33333v114.66667c0,7.92275 6.41058,14.33333 14.33333,14.33333h86c7.92275,0 14.33333,-6.41058 14.33333,-14.33333v-114.66667c0,-7.92275 -6.41058,-14.33333 -14.33333,-14.33333" fill="#455a64"></path><path d="M129,146.91667h-86c-1.97442,0 -3.58333,-1.60892 -3.58333,-3.58333v-114.66667c0,-1.97442 1.60892,-3.58333 3.58333,-3.58333h86c1.97442,0 3.58333,1.60892 3.58333,3.58333v114.66667c0,1.97442 -1.60892,3.58333 -3.58333,3.58333" fill="#ffffff"></path><path d="M93.16667,14.33333c0,3.95958 -3.20708,7.16667 -7.16667,7.16667c-3.95958,0 -7.16667,-3.20708 -7.16667,-7.16667h-25.08333v14.33333c0,3.95958 3.20708,7.16667 7.16667,7.16667h50.16667c3.95958,0 7.16667,-3.20708 7.16667,-7.16667v-14.33333z" fill="#90a4ae"></path><path d="M86,0c-7.90842,0 -14.33333,6.42492 -14.33333,14.33333c0,7.90842 6.42492,14.33333 14.33333,14.33333c7.90842,0 14.33333,-6.42492 14.33333,-14.33333c0,-7.90842 -6.42492,-14.33333 -14.33333,-14.33333M86,21.5c-3.95958,0 -7.16667,-3.20708 -7.16667,-7.16667c0,-3.95958 3.20708,-7.16667 7.16667,-7.16667c3.95958,0 7.16667,3.20708 7.16667,7.16667c0,3.95958 -3.20708,7.16667 -7.16667,7.16667" fill="#90a4ae"></path><rect x="-9.9003" y="32.60438" transform="rotate(-45.001) scale(3.58333,3.58333)" width="18.388" height="4" fill="#f50057"></rect><rect x="-2.75226" y="25.45351" transform="rotate(-45.001) scale(3.58333,3.58333)" width="4" height="18.387" fill="#f50057"></rect></g></g></svg>
+        </div>
+        {% with attendance_type=notice.data.attendance_type %}
+
+
+        {% if attendance_type == 'class' %}
+        <!--class attendance-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class="">Class attendance <strong>failed!</strong></div>
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th>Class:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.data.class_name}}-{{notice.data.section}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Period:</th>
+                            <td><div class="pl5 pr5">{{notice.data.period}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Day:</th>
+                            <td><div class="pl5 pr5">{{notice.timestamp|date:'h:i a'}} ({{notice.data.date|get_day_by_datetime}} {{notice.timestamp|date:'M d, Y '}})</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken by:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.attendance_taker.user.first_name}} {{notice.action_object.attendance_taker.user.last_name}}</div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+
+        {% elif attendance_type == 'self' %}
+        <!--self attendance-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class="">Self attendance <strong>failed!</strong></div>
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th>Status: </th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.attendance_type}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken by:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.taken_by.user.first_name}} {{notice.action_object.taken_by.user.last_name}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken For:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.taken_for.user.first_name}} {{notice.action_object.taken_for.user.last_name}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Day:</th>
+                            <td><div class="pl5 pr5">{{notice.timestamp|date:'h:i a'}} ({{notice.data.date|get_day_by_datetime}} {{notice.timestamp|date:'M d, Y '}})</div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+
+        {% elif attendance_type == 'other' %}
+        <!--other attendance-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class="">Other's Attendance <strong>failed!</strong></div>
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th>Status: </th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.attendance_type}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken by:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.taken_by.user.first_name}} {{notice.action_object.taken_by.user.last_name}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken For:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.action_object.taken_for.user.first_name}} {{notice.action_object.taken_for.user.last_name}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Day:</th>
+                            <td><div class="pl5 pr5">{{notice.timestamp|date:'h:i a'}} ({{notice.data.date|get_day_by_datetime}} {{notice.timestamp|date:'M d, Y '}})</div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        {% endwith %}
+    </div>
+</li>
+
+

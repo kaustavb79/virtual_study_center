@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Map and search location</title>
+    <link href="geo_location_search.css" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback&libraries=places"></script>
+</head>
+<body>
+<h3>Show Map and search location</h3>
+    <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />
+    <input type="hidden" id="city2" name="city2" />
+    <input type="hidden" id="cityLat" name="cityLat" />
+    <input type="hidden" id="cityLng" name="cityLng" />
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <script src="geo_location_search.js" type="text/javascript"></script>
+</body>
+</html>
+
+
+
+
+
+

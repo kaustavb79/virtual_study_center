@@ -1,0 +1,49 @@
+
+
+/*sam fix start*/
+/*
+.datepickers-container{
+    z-index:101;
+}
+*/
+@media screen and (max-width: 768px) {
+    .datepickers-container {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        /*
+        z-index:100;
+        */
+    }
+    .datepickers-container .datepicker.active {
+        left:auto!important;
+        top:auto!important;
+    }
+    .datepickers-container .datepicker.active .datepicker--pointer{
+        display:none;
+    }
+}
+
+/*sam fix end*/
+/*
+.datepickers-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.datepickers-container .datepicker.active {
+    left:auto!important;
+    top:auto!important;
+}
+.datepickers-container .datepicker.active .datepicker--pointer{
+    display:none;
+}
+*/
+
+.datepickers-container{
+    z-index:103!important;
+}

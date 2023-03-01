@@ -1,0 +1,68 @@
+<style>{% include 'snippets/top_nav_bar/sub_nav.css' %}</style>
+
+
+<div class="flx w80 ma j-c-s-b p10 mt10 mb10" id="sub_nav_bar">
+
+    {% with role=request.user.profile.role %}
+
+
+    {% if request.user.is_superuser %}
+    <div class="flx  cp sub_nav_school_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_root:school_list' %}">Organisation list</a>
+    </div>
+    <div class="dash"></div>
+    <div class="flx  cp sub_nav_media_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_file_manager:old_folder_list' %}">Media</a>
+    </div>
+    <div class="dash"></div>
+    {% endif %}
+
+
+    {% if role == "teacher" or role == "school_admin" %}
+    <div class="flx  cp sub_nav_registration_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:student_register' %}">Registration</a>
+    </div>
+    <div class="dash"></div>
+
+    <div class="flx  cp sub_nav_students_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:students' %}">Students</a>
+    </div>
+    <div class="dash"></div>
+
+    <div class="flx  cp sub_nav_staff_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:teacher_list' %}">Staff</a>
+    </div>
+    <div class="dash"></div>
+
+    <div class="flx   cp sub_nav_take_attendance_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:take_attendance' %}">Take Attendance</a>
+    </div>
+    <div class="dash"></div>
+    {% endif %}
+
+
+    {% if role == "teacher" or role == "school_admin" or role == "student" %}
+    <div class="flx   cp sub_nav_attendance_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:attendance' %}">Attendance</a>
+    </div>
+    <div class="dash"></div>
+
+    <div class="flx   cp sub_nav_report_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:report' %}">Report</a>
+    </div>
+    <div class="dash"></div>
+    {% endif %}
+
+
+    <div class="flx   cp sub_nav_settings_div">
+        <a class="sub_nav_a" tabindex="0" href="{% url 'app_smart_attendance:settings' %}">Settings</a>
+    </div>
+
+
+    {% endwith %}
+
+</div>
+
+
+<script>{% include 'snippets/top_nav_bar/sub_nav.js' %}</script>
+

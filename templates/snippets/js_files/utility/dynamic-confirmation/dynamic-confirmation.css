@@ -1,0 +1,275 @@
+
+/* define variable */
+:root {
+    --dcc-content-border-radius:4px;
+    --dcc-content-width: 500px;
+
+    --dcc-header-container-color:#000;
+    --dcc-header-container-bg-color: #fff;
+    --dcc-header-container-pd: 15px 15px 15px 15px;
+
+    --dcc-footer-controls-div-pd:15px;
+    --dcc-footer-controls-div-bg-color: #fff;
+    --dcc-footer-controls-div-btn-pd:8px 16px;
+
+    --dcc-close-color: #666;
+    --dcc-close-bg-color: #fff;
+    --dcc-close-bg-color-h: #f5f5f5;
+    --dcc-close-color-h: #666;
+    --dcc-close-focus-shadow-color: #2573e880;
+
+    --dcc-cancel-color: #666;
+    --dcc-cancel-border-color:#666;
+    --dcc-cancel-focus-shadow-color: #2573e880;
+
+    --dcc-submit-color: #405;
+    --dcc-submit-border-color:#405;
+    --dcc-submit-focus-shadow-color: #2573e880;
+
+    --button-right-margin:10px;
+
+    --dcc-focus-shadow-color: #2573e880;
+
+    --dcc-horizontal-position:center;
+    --dcc-vertical-position:center;
+
+
+}
+
+.shake {
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 400ms;
+    animation-duration: 400ms;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out
+}
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: none;
+        transform: none
+    }
+
+    12.5% {
+        -webkit-transform: translateX(-6px) rotateY(-5deg);
+        transform: translateX(-6px) rotateY(-5deg)
+    }
+
+    37.5% {
+        -webkit-transform: translateX(5px) rotateY(4deg);
+        transform: translateX(5px) rotateY(4deg)
+    }
+
+    62.5% {
+        -webkit-transform: translateX(-3px) rotateY(-3deg);
+        transform: translateX(-3px) rotateY(-3deg)
+    }
+
+    87.5% {
+        -webkit-transform: translateX(2px) rotateY(2deg);
+        transform: translateX(2px) rotateY(2deg)
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes shake {
+    0% {
+        -webkit-transform: none;
+        transform: none
+    }
+
+    12.5% {
+        -webkit-transform: translateX(-6px) rotateY(-5deg);
+        transform: translateX(-6px) rotateY(-5deg)
+    }
+
+    37.5% {
+        -webkit-transform: translateX(5px) rotateY(4deg);
+        transform: translateX(5px) rotateY(4deg)
+    }
+
+    62.5% {
+        -webkit-transform: translateX(-3px) rotateY(-3deg);
+        transform: translateX(-3px) rotateY(-3deg)
+    }
+
+    87.5% {
+        -webkit-transform: translateX(2px) rotateY(2deg);
+        transform: translateX(2px) rotateY(2deg)
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+/* "dcc-open" class is use to hide html body scroll*/
+.dcc-open{
+    overflow:hidden;
+}
+
+.dynamic-confirmation-container{
+    display: none;
+    background-color: #00000066;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index:1000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.dcc-wrapper{
+    display:flex;
+    height: 100%;
+    width:100%;
+    justify-content: var(--dcc-horizontal-position);
+    align-items: var(--dcc-vertical-position);
+    -webkit-perspective: 300;
+    perspective: 300;
+}
+.dcc-content{
+    background-color: white;
+    width: var(--dcc-content-width);
+    min-width:200px;
+    border-radius: var(--dcc-content-border-radius);
+
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    max-height: 90%;
+    overflow:hidden;
+}
+.dcc-close-div{
+    display: flex;
+    align-self: flex-start;
+}
+.dcc-close-btn{
+    font-size: 25px;
+    /*
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    */
+    padding: 0 5px;
+    cursor: pointer;
+    border-radius: 50px;
+    display: flex;
+    font-weight: bold;
+    border: 0;
+    color: var(--dcc-close-color);
+    background-color: var(--dcc-close-bg-color);
+    line-height: 25px;
+}
+.dcc-close-btn:hover {
+    background-color: var(--dcc-close-bg-color-h);
+    color: var(--dcc-close-color-h);
+}
+.dcc-header-container{
+    display: flex;
+    align-items: center;
+    padding:var(--dcc-header-container-pd);
+    background-color:var(--dcc-header-container-bg-color);
+    color:var(--dcc-header-container-color);
+}
+.dcc-header-icon-div{
+    display: flex;
+    place-self: self-start;
+    margin-right: 5px;
+    max-width: 50px;
+    max-height: 50px;
+    align-items: center;
+}
+.dcc-header-text-div{
+    width:100%;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dcc-body-container{
+    overflow:auto;
+}
+.dcc-body-div{
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+}
+.dcc-footer-container{
+
+}
+.dcc-footer-controls-div{
+    display:flex;
+    place-content: flex-end;
+    padding:var(--dcc-footer-controls-div-pd);
+    background-color:var(--dcc-footer-controls-div-bg-color);
+}
+.dcc-footer-controls-div button:nth-child(1){
+    margin-right:var(--button-right-margin);
+}
+.dcc-footer-controls-div button{
+    display:flex;
+    cursor: pointer;
+    padding: var(--dcc-footer-controls-div-btn-pd);
+    border-radius: 3px;
+    font-weight: bold;
+}
+.dcc-cancel-btn{
+    border: 1px solid var(--dcc-cancel-border-color);
+    color: var(--dcc-cancel-color);
+    background-color: #fff;
+}
+.dcc-cancel-btn:hover{
+    background-color: rgba(0, 0, 0, 0.04);
+}
+.dcc-submit-btn{
+    border: 1px solid var(--dcc-submit-border-color);
+    color: #fff;
+    background-color: var(--dcc-submit-color);
+}
+.dcc-submit-btn:hover{
+    opacity: 0.8;
+}
+.dcc-submit-btn:active{
+    opacity: 1;
+}
+
+.dcc-close-btn:focus{
+     box-shadow: 0px 0px 0px 2px var(--dcc-close-focus-shadow-color);
+     outline:none;
+}
+.dcc-cancel-btn:focus{
+     box-shadow: 0px 0px 0px 2px var(--dcc-cancel-focus-shadow-color);
+}
+.dcc-submit-btn:focus{
+     box-shadow: 0px 0px 0px 2px var(--dcc-submit-focus-shadow-color);
+}
+
+
+@media screen and (max-width: 768px) {
+    .dynamic-confirmation-container{
+        padding:20px 0;
+    }
+    .dcc-content{
+        max-width:90%;
+    }
+}
+
+
+

@@ -1,0 +1,76 @@
+
+/************************/
+/* toggle button start  */
+/************************/
+.checkbox_toggle_btn_div{
+
+}
+.checkbox_toggle_btn input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+	display: none;
+}
+.checkbox_toggle_btn label {
+	cursor: pointer;
+	width: 70px;
+    height: 30px;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+    font-weight:bold;
+}
+
+.checkbox_toggle_btn label:after {
+	content: "NO";
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 30px;
+	height: 20px;
+	border-radius: 20px;
+	transition: 0.3s;
+	font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox_toggle_btn input:checked + label:after {
+    content: "YES";
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.checkbox_toggle_btn label:active:after {
+	width: 40px;
+}
+
+
+/* SET checkbox_toggle_btn COLOR START */
+.checkbox_toggle_btn label:after {
+	background: #fff;
+}
+.checkbox_toggle_btn label {
+    background: grey;
+}
+.checkbox_toggle_btn input:checked + label {
+	background: #405;
+	/*background: #bada55;*/
+	/*blue*/
+	/*
+    background-color: #ebf7fc;
+    background-color: #03a9f4;
+    */
+    /*red*/
+    /*
+    background-color: #fcebeb;
+    background-color: #f44336;
+    */
+}
+/* SET checkbox_toggle_btn COLOR END */
+
+
+/* toggle button start  */
+
+

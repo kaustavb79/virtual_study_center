@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="dynamic-confirmation.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" type="text/javascript"></script>
+    <script src="dynamic-confirmation.js" type="text/javascript"></script>
+</head>
+
+<body style="display:flex; flex-direction:column;">
+<!--dynamic-confirmation.html start-->
+
+<h1>This is the example of open confirmation overlay</h1>
+<button id="open-dynamic-confirmation-btn">open confirmation div</button>
+<h2>Here is the html of confirmation overlay</h2>
+<pre>
+&lt;div class="dynamic-confirmation-container"&gt;
+    &lt;div class="dcc-wrapper"&gt;
+        &lt;div class="dcc-content"&gt;
+            &lt;div class="dcc-close-div"&gt;
+                &lt;button class="dcc-close-btn" tabindex=0&gt;&times;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="dcc-header-container"&gt;
+                ${dcc_header_icon_div}
+                &lt;div class="dcc-header-text-div"&gt;${data.head}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="dcc-body-container"&gt;
+                &lt;div class="dcc-body-div"&gt;
+                    ${data.body}
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="dcc-footer-container"&gt;
+                &lt;div class="dcc-footer-controls-div"&gt;
+                    &lt;button class="dcc-submit-btn" tabindex=0&gt;${data.submit_text}&lt;/button&gt;
+                    &lt;button class="dcc-cancel-btn" tabindex=0&gt;${data.cancel_text}&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h2 style="padding:0; margin:0;">
+    Pass an object to dynamic_confirmation(); function to open it.
+</h2>
+<h2 style="padding:0; margin:0;">
+    You can pass given keys, values pair to customize confirmation overlay</h2>
+<pre>
+        // dynamic_confirmation integration start
+        // create configuration object for confirmation overlay
+        var confirmation_obj = {
+            "icon":"high_risk",
+            "head":"Are you sure?",
+            "body":"Once you delete the job you never get it back!
+                    Once you delete the job you never get it back!",
+            "width":"300px",
+            "action_type":"delete",
+            "action_yes":action_yes,
+            "action_no":action_no,
+            "action_close":action_close,
+            "position":"top",
+            "cancel_text":"No",
+            "submit_text":"Yes",
+            "auto_close":"true"
+        }
+
+        // call dynamic_confirmation function from dynamic-confirmation.js
+        dynamic_confirmation(confirmation_obj);
+
+        function action_yes(){
+            //here define the code execute on action_yes
+           after_dynamic_confirm_fn(after_dynamic_confirm_data);
+        }
+        function action_no(){
+            //here define the code execute on action_no
+            alert('your press no');
+        }
+        function action_close(){
+            //here define the code execute on action_close
+            alert('your press close');
+        }
+
+
+        function after_dynamic_confirm_fn(after_dynamic_confirm_data){
+            alert(JSON.stringify(after_dynamic_confirm_data));
+        }
+
+</pre>
+
+
+<br>
+<br>
+<h3>this is the "screen position number" and "keyword" to set confirmation overlay postion</h3>
+<pre>
+    // "screen position number" and "keyword" to set the position of configuration overlay
+    //        1                   2                       3
+    //    top left            top center              top right
+    //    left top            center top              right top
+    //                            top
+    //
+    //        4                   5                       6
+    //    center left                                 center right
+    //    left center         center center           right center
+    //                           center
+    //
+    //
+    //        6                   7                       8
+    //    bottom left         bottom center           bottom right
+    //    left bottom         center bottom           right bottom
+    //                           bottom
+</pre>
+<form method="post" action="/employer/emp-questions/Q_07ac10af-f0b3-4249-b615-4521f88f6973/delete/" class="js_emp_questions_delete_form" id="" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="kXpbvyAZ9oFN0JDGrYaZm1CqZaKIlUixfSO0BYY7murgCebr1ow6Ne8MPUOXgi8S">
+        <p class="lead">Are you sure you want to delete the question <br><strong></strong></p><p><strong>q bank question</strong></p> ?<p></p>
+    <select>
+        <option>hello</option>
+        <option>hi</option>
+        <option>yo</option>
+        <option>bye</option>
+    </select>
+    <input type="text" tabindex="1">
+<input type="text" tabindex="0">
+<input type="text" tabindex="0">
+<input type="text" tabindex="2">
+<input type="text" tabindex="0">
+<input type="text" tabindex="0">
+<input type="text" tabindex="3">
+
+    <textarea>
+
+    </textarea>
+
+
+</form>
+
+<div id="form_div">
+<form method="post" action="/employer/emp-questions/Q_07ac10af-f0b3-4249-b615-4521f88f6973/delete/" class="js_emp_questions_delete_form" id="emp_questions_crud_form" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="kXpbvyAZ9oFN0JDGrYaZm1CqZaKIlUixfSO0BYY7murgCebr1ow6Ne8MPUOXgi8S">
+        <p class="lead">Are you sure you want to delete the question <br><strong></strong></p><p><strong>q bank question</strong></p> ?<p></p>
+    <select>
+        <option>hello</option>
+        <option>hi</option>
+        <option>yo</option>
+        <option>bye</option>
+    </select>
+    <input type="text" tabindex="1">
+<input type="text" tabindex="0">
+<input type="text" tabindex="0">
+<input type="text" tabindex="2">
+<input type="text" tabindex="0">
+<input type="text" tabindex="0">
+<input type="text" tabindex="3">
+
+    <textarea>
+
+    </textarea>
+
+
+</form>
+</div>
+<br>
+<br>
+<script>
+$("#open-dynamic-confirmation-btn").click(function(){
+        var after_dynamic_confirm_data = {'csrfmiddlewaretoken': '{{ csrf_token }}'};
+        var whattodo_key = 'whattodo';
+        var whattodo_value = 'applyforjob';
+        var candidate_email_id = '{{request.user.email}}';
+        var job_id = '{{object.job_id|safe}}';
+        var employer_id = '{{object.created_by.employer_id|safe}}'
+
+        after_dynamic_confirm_data[whattodo_key] = whattodo_value;
+        after_dynamic_confirm_data['candidate_email_id'] = candidate_email_id;
+        after_dynamic_confirm_data['job_id'] = job_id;
+        after_dynamic_confirm_data['employer_id'] = employer_id;
+
+
+        var emp_questions_crud_form = $("#emp_questions_crud_form");
+        var testing = `<div class="hello" id="testing">testing html</div>`;
+
+
+        var confirmation_obj = {
+            "icon":"",
+            "head":"Are you sure?",
+            "body":emp_questions_crud_form,
+            "width":"90%",
+            "action_type":"confirm",
+            "action_yes":action_yes,
+            "action_no":action_no,
+            "action_close":action_close,
+            "position":"2",
+            "cancel_text":"Close",
+            "submit_text":"Create",
+            "effect":"shake",
+            "show_close_btn":"true",
+            "close_click_outside":"false"
+        }
+
+        dynamic_confirmation(confirmation_obj);
+
+        function action_yes(){
+            //here define the code execute on action_yes
+           after_dynamic_confirm_fn(after_dynamic_confirm_data);
+        }
+        function action_no(){
+            //here define the code execute on action_no
+            alert('your press no');
+            $("#form_div").html(emp_questions_crud_form);
+        }
+        function action_close(){
+            //here define the code execute on action_close
+            alert('your press close');
+            $("#form_div").html(emp_questions_crud_form);
+        }
+
+
+})
+
+function after_dynamic_confirm_fn(after_dynamic_confirm_data){
+    alert(JSON.stringify(after_dynamic_confirm_data));
+}
+
+</script>
+
+
+<!--dynamic-confirmation.html end-->
+
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Notifications - {{block.super}}{% endblock %}
+
+{% block head %}
+<style> {% include 'notifications/css/notification.css' %} </style>
+<script>{% include 'snippets/js_files/utility/date-difference.js' %}</script>
+{% endblock %}
+
+
+{% block content %}
+<div class="all-container" id="all-notifications-container">
+    <div class="lh-notifications-container flx flxc">
+        {% if notifications %}
+        <div class="t-a-c w90 ma br5px c6">
+            <div><h2>NOTIFICATIONS</h2></div>
+        </div>
+        <div class="flx w90 ma">
+            <div class="mla button p5 clear_all_btn_div">
+                <a class="clear_all_btn" href="{% url 'notifications:mark_all_as_read' %}">Mark all as read</a>
+            </div>
+        </div>
+
+        <div class="t-a-c  w90 ma bdr mt10 br5px c6">
+            <ul class="lh-notifications">
+                {% for notice in notifications %}
+
+                {% if notice.verb == 'attendance_completed_v1' or notice.verb == 'other_attendance_taken' or notice.verb == 'class_attendance_taken' or notice.verb == 'self_attendance_taken' or notice.verb == 'cctv_attendance_taken' %}
+                    {% include 'notifications/to_scad_teach_cnd_att_completed_by_teach_v1.html' %}
+                {% elif notice.verb == 'attendance_failed_v1' or notice.verb == 'other_attendance_failed' or notice.verb == 'class_attendance_failed' or notice.verb == 'self_attendance_failed' or notice.verb == 'cctv_attendance_failed' %}
+                    {% include 'notifications/to_scad_teach_cnd_att_failed_by_teach_v1.html' %}
+
+                {% elif notice.verb == 'attendance_completed' %}
+                    {% include 'notifications/to_scad_teach_cnd_att_completed_by_teach.html' %}
+                {% elif notice.verb == 'attendance_failed' %}
+                    {% include 'notifications/to_scad_teach_cnd_att_failed_by_teach.html' %}
+
+                {% elif notice.verb == 'new_user_registration_completed' %}
+                    {% include 'notifications/to_scad_teach_cnd_user_reg_completed_by_teach.html' %}
+                {% elif notice.verb == 'new_user_registration_failed' %}
+                    {% include 'notifications/to_scad_teach_cnd_user_reg_failed_by_teach.html' %}
+
+                {% elif notice.verb == 'face_registration_completed' %}
+                    {% include 'notifications/to_scad_teach_cnd_face_reg_completed_by_teach.html' %}
+                {% elif notice.verb == 'face_registration_failed' %}
+                    {% include 'notifications/to_scad_teach_cnd_face_reg_failed_by_teach.html' %}
+
+                {% elif notice.verb == 'registration_completed' %}
+                    {% include 'notifications/to_scad_teach_cnd_reg_completed_by_teach.html' %}
+                {% elif notice.verb == 'registration_failed' %}
+                    {% include 'notifications/to_scad_teach_cnd_reg_failed_by_teach.html' %}
+
+                {% else %}
+                    {% include 'notifications/notice.html' %}
+                {% endif %}
+
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <!--schedule view overlay start-->
+        <div class="o-c-a-c-f zi102" id="ovr-lay-edit-view-container">
+            <div id="ovr-lay-edit-view-div">
+                <div class="overlay-head-div">
+                    <div class="overlay-head-text"><span class="overlay-head-text-new"></span></div>
+                    <div class="close-overlay-div">
+                        <div class="close-overlay-content">×</div>
+                    </div>
+                </div>
+                <div class="overlay-content-div">
+                    <div class="overlay-content-content">
+                    </div>
+                </div>
+                <div class="overlay-foot-div">
+                    <div class="overlay-foot-content">
+                        <button class="submit-overlay-content">Submit</button>
+                        <button class="cancel-overlay-content">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--schedule view overlay end-->
+
+
+        {% else %}
+
+        <div>
+            <div class="mh80vh">
+                <div class="t-a-c p30 w90 ma mb50 bdr mt50 br5px c6">
+                    <div class="p10"><h2>
+                        {% if 'unread' in request.path %}
+                            YOU DON'T HAVE ANY UNREAD NOTIFICATIONS.
+                        {% else %}
+                            YOU DON'T HAVE ANY NOTIFICATIONS.
+                        {% endif %}
+                    </h2></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+
+
+
+
+

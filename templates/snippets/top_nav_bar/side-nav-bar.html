@@ -1,0 +1,111 @@
+{% if user.is_authenticated %}
+<style> {% include 'snippets/top_nav_bar/side-nav-bar.css' %} </style>
+<div class="" id="side-nav-bar-container">
+    <div id="side-nav-shadow">
+        <div id="side-nav-bar">
+            {% with role=request.user.profile.role %}
+            {% if request.user.is_superuser %}
+            <!--school-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_root:school_list' %}">
+                    <div class="fafa-nav school-a-fafa-nav"  title="Organisation"></div>
+                </a>
+                <div id="school-a-fafa-nav-arrow"></div>
+            </div>
+            <!--folder-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_file_manager:old_folder_list' %}">
+                    <div class="fafa-nav media-a-fafa-nav"  title="Media"></div>
+                </a>
+                <div id="media-a-fafa-nav-arrow"></div>
+            </div>
+            {% endif %}
+
+            {% if role == "admin" or role == "staff" or role == "school_admin" or role == "teacher" or role == "non_teacher" %}
+            <!--dashboard-->
+            <div>
+                <a class="side-nav-a" href="/">
+                    <div class="fafa-nav home-a-fafa-nav"  title="Dashboard"></div>
+                </a>
+                <div id="home-a-fafa-nav-arrow"></div>
+            </div>
+            <!--take_attendance-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:take_attendance' %}">
+                    <div class="fafa-nav mark_attendance-a-fafa-nav"  title="Mark attendance"></div>
+                </a>
+                <div id="mark_attendance-a-fafa-nav-arrow"></div>
+            </div>
+            <!--attendance-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:attendance' %}">
+                    <div class="fafa-nav attendance-a-fafa-nav"  title="Timesheet"></div>
+                </a>
+                <div id="attendance-a-fafa-nav-arrow"></div>
+            </div>
+            <!--register-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:student_register' %}">
+                    <div class="fafa-nav register-a-fafa-nav"  title="Registration"></div>
+                </a>
+                <div id="register-a-fafa-nav-arrow"></div>
+            </div>
+            <!--people-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:people' %}">
+                    <div class="fafa-nav user-a-fafa-nav"  title="People"></div>
+                </a>
+                <div id="user-a-fafa-nav-arrow"></div>
+            </div>
+            {% endif %}
+
+            {% if role == "admin" or role == "staff" or role == "school_admin" or role == "teacher" or role == "non_teacher" %}
+            <!--announcement-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:announcement_view' %}">
+                    <div class="fafa-nav announcements-a-fafa-nav"  title="Announcements"></div>
+                </a>
+                <div id="announcements-a-fafa-nav-arrow"></div>
+            </div>
+            <!--report-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:report' %}">
+                    <div class="fafa-nav report-a-fafa-nav"  title="Reports"></div>
+                </a>
+                <div id="report-a-fafa-nav-arrow"></div>
+            </div>
+            {% endif %}
+
+            {% if role == "student" %}
+            <!--announcement-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:announcement_view' %}">
+                    <div class="fafa-nav announcements-a-fafa-nav"  title="Announcements"></div>
+                </a>
+                <div id="announcements-a-fafa-nav-arrow"></div>
+            </div>
+            <!--attendance-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:attendance' %}">
+                    <div class="fafa-nav attendance-a-fafa-nav"  title="Timesheet"></div>
+                </a>
+                <div id="attendance-a-fafa-nav-arrow"></div>
+            </div>
+            {% endif %}
+
+            <!--settings-->
+            <div>
+                <a class="side-nav-a" href="{% url 'app_smart_attendance:settings' %}">
+                    <div class="fafa-nav setting-a-fafa-nav"  title="Settings"></div>
+                </a>
+                <div id="setting-a-fafa-nav-arrow"></div>
+            </div>
+
+
+            {% endwith %}
+        </div>
+        <div id="arrw"></div>
+    </div>
+</div>
+<script>{% include 'snippets/top_nav_bar/side-nav-bar.js' %}</script>
+{% endif %}

@@ -1,0 +1,373 @@
+{% comment %}
+{% endcomment %}
+<!-- to_scad_teach_cnd_face_reg_completed_by_teach.html -->
+
+
+{% load template_tags %}
+<li class="lh-notification  lh-alert-block {% if notice.unread %}lh-alert-{{ notice.level }} lh-alert-unread{% endif %}"
+    onclick="window.location='{% url 'notifications:mark_as_read' notice.slug %}';">
+    <div class="flx nt-card">
+
+        <div class="lhn_img_div">
+            <svg version="1.1" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172">
+                <g fill="#444b54" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                   stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                   font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                   style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none" stroke="none"></path>
+                    <g id="original-icon" fill="#444b54" stroke="none" opacity="0" visibility="hidden">
+                        <path d="M89.06375,11.66375c-12.6592,0.2408 -21.9464,4.09306 -27.5536,11.48906c-6.6392,8.772 -7.87867,22.05121 -3.68187,39.52641c-1.548,1.892 -2.68455,4.8152 -2.23735,8.6336c0.9288,7.6024 3.85146,10.6941 6.36266,11.9325c1.1696,5.9512 4.40723,12.65866 7.57203,15.78906l0.03359,1.61922c0,3.5088 0.03413,6.53358 -0.27547,10.42078c-2.1328,4.8504 -9.116,7.60536 -17.2,10.77016c-13.4504,5.2976 -30.17095,11.86639 -31.44375,32.74719l-0.20828,3.64828h81.39094c-1.2728,-2.1672 -2.30534,-4.472 -3.13094,-6.88h-70.72156c2.58,-13.6568 14.78609,-18.44163 26.61969,-23.08563c9.4256,-3.7152 18.34004,-7.21782 21.29844,-15.16422l0.20156,-0.90031c0.3784,-4.5064 0.34937,-7.94264 0.34937,-11.62344l-0.03359,-3.16453l0.06719,-2.06265l-1.8611,-0.9675c-1.5136,-0.9976 -5.53437,-7.94345 -6.18797,-14.16985l-0.30906,-2.82187l-2.82187,-0.24187c-0.4472,-0.0344 -2.20187,-1.27092 -2.85547,-6.67172c-0.344,-2.752 0.99437,-3.74906 0.99437,-3.74906l2.20375,-1.34375l-0.65172,-2.43891c-4.1624,-16.0992 -3.47413,-28.41897 1.99547,-35.64297c4.3,-5.6072 11.76292,-8.56157 22.15172,-8.76797c6.4328,0 11.21091,1.6168 12.75891,4.3l0.8264,1.47812l1.6864,0.24188c4.6096,0.6536 7.84455,2.61521 9.97735,5.98641c5.2632,8.4968 2.20455,24.21626 -0.40985,32.16266l-0.72562,2.58l2.17015,1.44453c0.0344,0 1.37197,0.99706 1.02797,3.74906c-0.6192,5.4008 -2.40827,6.63732 -2.85547,6.67172l-2.82187,0.24187l-0.30906,2.82187c-0.688,6.2608 -4.5701,13.17305 -5.9461,14.13625l-1.86109,0.9675v5.29437c-0.0344,3.6464 -0.07015,7.08345 0.34265,11.58985l0.20828,0.90031c0.1376,0.344 0.27815,0.68397 0.45015,1.02797c1.72,-2.4768 3.6765,-4.78241 5.9125,-6.84641v-0.03359c-0.0688,-2.236 -0.06799,-4.30054 -0.03359,-6.57094v-1.65281c3.096,-3.1648 6.26134,-9.87065 7.43094,-15.85625c2.408,-1.2384 5.43466,-4.33171 6.32906,-11.86531c0.4472,-3.7496 -0.64984,-6.64081 -2.16344,-8.53281c2.0296,-6.8112 6.11729,-24.49253 -0.90031,-35.84453c-2.9584,-4.7816 -7.46104,-7.77306 -13.34344,-8.94266c-3.2336,-4.0936 -9.45892,-6.32906 -17.81812,-6.32906zM137.6,103.2c-18.92,0 -34.4,15.48 -34.4,34.4c0,18.92 15.48,34.4 34.4,34.4c18.92,0 34.4,-15.48 34.4,-34.4c0,-18.92 -15.48,-34.4 -34.4,-34.4zM137.6,110.08c15.136,0 27.52,12.384 27.52,27.52c0,15.136 -12.384,27.52 -27.52,27.52c-15.136,0 -27.52,-12.384 -27.52,-27.52c0,-15.136 12.384,-27.52 27.52,-27.52zM155.10906,127.29344c-0.87634,-0.07998 -1.78353,0.17722 -2.51281,0.7861l-18.22797,15.18437l-8.0961,-8.09609c-1.34504,-1.34504 -3.51933,-1.34504 -4.86437,0c-1.34504,1.34504 -1.34504,3.51933 0,4.86437l10.32,10.32c0.66736,0.66736 1.54811,1.00781 2.43219,1.00781c0.78088,0 1.56063,-0.26633 2.19703,-0.79953l20.64,-17.2c1.45856,-1.21432 1.6612,-3.38566 0.44344,-4.84422c-0.60888,-0.72928 -1.45506,-1.14283 -2.3314,-1.22281z"></path>
+                    </g>
+                    <g id="subtracted-icon" fill="#444b54" stroke="none">
+                        <path d="M89.06375,11.66375c-12.6592,0.2408 -21.9464,4.09306 -27.5536,11.48906c-6.6392,8.772 -7.87867,22.05121 -3.68187,39.52641c-1.548,1.892 -2.68455,4.8152 -2.23735,8.6336c0.9288,7.6024 3.85146,10.6941 6.36266,11.9325c1.1696,5.9512 4.40723,12.65866 7.57203,15.78906l0.03359,1.61922c0,3.5088 0.03413,6.53358 -0.27547,10.42078c-2.1328,4.8504 -9.116,7.60536 -17.2,10.77016c-13.4504,5.2976 -30.17095,11.86639 -31.44375,32.74719l-0.20828,3.64828h81.39094c-1.2728,-2.1672 -2.30534,-4.472 -3.13094,-6.88h-70.72156c2.58,-13.6568 14.78609,-18.44163 26.61969,-23.08563c9.4256,-3.7152 18.34004,-7.21782 21.29844,-15.16422l0.20156,-0.90031c0.3784,-4.5064 0.34937,-7.94264 0.34937,-11.62344l-0.03359,-3.16453l0.06719,-2.06265l-1.8611,-0.9675c-1.5136,-0.9976 -5.53437,-7.94345 -6.18797,-14.16985l-0.30906,-2.82187l-2.82187,-0.24187c-0.4472,-0.0344 -2.20187,-1.27092 -2.85547,-6.67172c-0.344,-2.752 0.99437,-3.74906 0.99437,-3.74906l2.20375,-1.34375l-0.65172,-2.43891c-4.1624,-16.0992 -3.47413,-28.41897 1.99547,-35.64297c4.3,-5.6072 11.76292,-8.56157 22.15172,-8.76797c6.4328,0 11.21091,1.6168 12.75891,4.3l0.8264,1.47812l1.6864,0.24188c4.6096,0.6536 7.84455,2.61521 9.97735,5.98641c5.2632,8.4968 2.20455,24.21626 -0.40985,32.16266l-0.72562,2.58l2.17015,1.44453c0.0344,0 1.37197,0.99706 1.02797,3.74906c-0.6192,5.4008 -2.40827,6.63732 -2.85547,6.67172l-2.82187,0.24187l-0.30906,2.82187c-0.688,6.2608 -4.5701,13.17305 -5.9461,14.13625l-1.86109,0.9675v5.29437c-0.0344,3.6464 -0.07015,7.08345 0.34265,11.58985l0.20828,0.90031c0.1376,0.344 0.27815,0.68397 0.45015,1.02797c1.72,-2.4768 3.6765,-4.78241 5.9125,-6.84641v-0.03359c-0.0688,-2.236 -0.06799,-4.30054 -0.03359,-6.57094v-1.65281c3.096,-3.1648 6.26134,-9.87065 7.43094,-15.85625c2.408,-1.2384 5.43466,-4.33171 6.32906,-11.86531c0.4472,-3.7496 -0.64984,-6.64081 -2.16344,-8.53281c2.0296,-6.8112 6.11729,-24.49253 -0.90031,-35.84453c-2.9584,-4.7816 -7.46104,-7.77306 -13.34344,-8.94266c-3.2336,-4.0936 -9.45892,-6.32906 -17.81812,-6.32906z"></path>
+                    </g>
+                    <g fill="green" stroke="none">
+                        <g>
+                            <path d="M137.6,172c-18.92,0 -34.4,-15.48 -34.4,-34.4c0,-18.92 15.48,-34.4 34.4,-34.4c18.92,0 34.4,15.48 34.4,34.4c0,18.92 -15.48,34.4 -34.4,34.4zM137.6,110.08c-15.136,0 -27.52,12.384 -27.52,27.52c0,15.136 12.384,27.52 27.52,27.52c15.136,0 27.52,-12.384 27.52,-27.52c0,-15.136 -12.384,-27.52 -27.52,-27.52zM157.552,126.248l-5.16,-4.472l-18.576,21.672l-11.352,-8.6l-4.128,5.504l16.168,12.384z"></path>
+                        </g>
+                        <g opacity="0">
+                            <path d="M137.6,178.88c22.704,0 41.28,-18.576 41.28,-41.28c0,-22.704 -18.576,-41.28 -41.28,-41.28c-22.704,0 -41.28,18.576 -41.28,41.28c0,22.704 18.576,41.28 41.28,41.28z"></path>
+                        </g>
+                    </g>
+                    <path d="M103.2,172v-68.8h68.8v68.8z" id="overlay-drag" fill="#ff0000" stroke="none"
+                          opacity="0"></path>
+                </g>
+            </svg>
+        </div>
+        {% with role=notice.action_object.profile.role %}
+
+        {% if role == 'student' %}
+        <!--Student-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+                    <div class=""><strong>Student</strong> face got successfully <strong>registered.</strong></div>
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Class:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.data.class_name}}-{{notice.data.section}}</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </a>
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:students_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:students' %}">
+                    <span>See all students</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% elif role == 'teacher' %}
+        <!--Teacher-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class=""><strong>Teacher</strong> face got successfully <strong>registered.</strong></div>
+
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:teacher_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:teacher_list' %}">
+                    <span>See all staff</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% elif role == 'non_teacher' %}
+        <!--Non teacher-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class=""><strong>Non teacher</strong> face got successfully <strong>registered.</strong>
+                    </div>
+
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:teacher_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:teacher_list' %}">
+                    <span>See all staff</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% elif role == 'school_admin' %}
+        <!--School admin-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class=""><strong>School Admin</strong> face got successfully <strong>registered.</strong>
+                    </div>
+
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:teacher_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:teacher_list' %}">
+                    <span>See all staff</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% elif role == 'staff' %}
+        <!--staff-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class=""><strong>Staff</strong> face got successfully <strong>registered.</strong>
+                    </div>
+
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:teacher_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:teacher_list' %}">
+                    <span>See all staff</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% elif role == 'admin' %}
+        <!--admin-->
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class=""><strong>Admin</strong> face got successfully <strong>registered.</strong>
+                    </div>
+
+                    <table class="">
+                        <tbody>
+
+                        <tr class="">
+                            <th>Name:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">
+                                    {{notice.action_object.first_name}}
+                                    {{notice.action_object.last_name}}
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Registered by:</th>
+                            <td>
+                                <div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+            <div class="flx mt10">
+                <a class="a-d-btn btn-danger cp t-d-n "
+                   href="{% url 'app_smart_attendance:teacher_detail' notice.action_object.profile.profile_id %}">
+                    View Details
+                </a>
+            </div>
+            <div class="flx mt10">
+                <a class="see_all_invite" href="{% url 'app_smart_attendance:teacher_list' %}">
+                    <span>See all staff</span>
+                </a>
+            </div>
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        {% endwith %}
+
+
+    </div>
+</li>
+
+

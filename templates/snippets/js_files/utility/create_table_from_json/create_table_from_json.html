@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="create_table_from_json.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div id="job_slab_table_div"></div>
+
+<script>
+create_job_slab_table();
+function create_job_slab_table(){
+
+    var obj = {};
+
+    var data = [
+        {
+            "service_list": "None",
+            "billing_plan_pk": "3e9b87b5-2078-45cd-abea-3fc261d8bed6",
+            "plan_is_active": "True",
+            "plan_code": "job slab 1",
+            "max_team_member": "10",
+            "plan_type": "job",
+            "plan_charge": "5.0",
+            "extra_invite_charges_per_job": "None",
+            "plan_charge_currency": "USD",
+            "plan_description": "50 free interviews included",
+            "plan_created_on": "2020-08-12 18:40:23.566561",
+            "free_invite_counts_per_job": "0",
+            "plan_modified_date": "None",
+            "plan_for": "employer",
+            "plan_sub_type": "regular"
+        }, {
+            "service_list": "None",
+            "billing_plan_pk": "73df1f7a-4d35-4699-8c04-d357654b6ae8",
+            "plan_is_active": "True",
+            "plan_code": "job slab 2",
+            "max_team_member": "20",
+            "plan_type": "job",
+            "plan_charge": "4.0",
+            "extra_invite_charges_per_job": "None",
+            "plan_charge_currency": "USD",
+            "plan_description": "400 free interviews included",
+            "plan_created_on": "2020-08-12 18:40:23.659356",
+            "free_invite_counts_per_job": "10",
+            "plan_modified_date": "None",
+            "plan_for": "employer",
+            "plan_sub_type": "regular"
+        }, {
+            "service_list": "None",
+            "billing_plan_pk": "135bc1b6-efea-495f-8c2c-2347d6bf2247",
+            "plan_is_active": "True",
+            "plan_code": "job slab 3",
+            "max_team_member": "50",
+            "plan_type": "job",
+            "plan_charge": "3.0",
+            "extra_invite_charges_per_job": "None",
+            "plan_charge_currency": "USD",
+            "plan_description": "100 free interviews included",
+            "plan_created_on": "2020-08-12 18:40:23.609098",
+            "free_invite_counts_per_job": "20",
+            "plan_modified_date": "None",
+            "plan_for": "employer",
+            "plan_sub_type": "regular"
+        }, {
+            "service_list": "None",
+            "billing_plan_pk": "60d0b6dd-ca23-4982-be4f-7841f538be9e",
+            "plan_is_active": "True",
+            "plan_code": "job slab 4",
+            "max_team_member": "100000",
+            "plan_type": "job",
+            "plan_charge": "1.0",
+            "extra_invite_charges_per_job": "None",
+            "plan_charge_currency": "USD",
+            "plan_description": "15 free interviews included",
+            "plan_created_on": "2020-08-12 18:40:23.458093",
+            "free_invite_counts_per_job": "50",
+            "plan_modified_date": "None",
+            "plan_for": "employer",
+            "plan_sub_type": "regular"
+        }
+    ];
+
+    var col = [
+        "billing_plan_pk",
+        "plan_for",
+        "plan_type",
+        "plan_sub_type",
+        "plan_code",
+        "plan_charge",
+        "plan_charge_currency",
+        "plan_description",
+        "service_list",
+        "max_team_member",
+        "free_invite_counts_per_job",
+        "extra_invite_charges_per_job",
+        "plan_is_active",
+        "plan_created_on",
+        "plan_modified_date"
+    ];
+
+    var col_name_obj = {
+        "billing_plan_pk":"Billing plan pk",
+        "plan_for":"plan for",
+        "plan_type":"plan type",
+        "plan_sub_type":"plan sub type",
+        "plan_code":"plan code",
+        "plan_charge":"plan charge",
+        "plan_charge_currency":"plan charge currency",
+        "plan_description":"plan description",
+        "service_list":"service list",
+        "max_team_member":"max team member",
+        "free_invite_counts_per_job":"free invite counts per job",
+        "extra_invite_charges_per_job":"extra invite charges per job",
+        "plan_is_active":"plan is active",
+        "plan_created_on":"plan created on",
+        "plan_modified_date":"plan modified date"
+    };
+
+    var table_id = 'job_slab_table';
+    var table_class = 'job_slab_table table405';
+    var table_container_id = 'job_slab_table_div';
+
+    obj.col = col;
+    obj.data = data;
+    obj.col_name_obj = col_name_obj;
+    obj.table_id = table_id;
+    obj.table_class = table_class;
+
+    var table = create_dynamic_table_form_obj(obj)
+
+    // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+    var divContainer = document.getElementById(table_container_id);
+    divContainer.innerHTML = "";
+    divContainer.appendChild(table);
+}
+
+</script>
+</body>
+</html>

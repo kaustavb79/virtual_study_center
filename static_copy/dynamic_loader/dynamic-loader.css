@@ -1,0 +1,517 @@
+
+#dynamic-loader-html{
+    background-color:#009688;
+}
+.dynamic-loader-container{
+    display:flex;
+}
+.dl-open{
+    overflow:hidden!important;
+}
+:root {
+    --dl-position: fixed;
+    --dl-lui-blanket-position : fixed;
+}
+/*loader.css start*/
+
+    /*lds-circle start */
+    .lds-circle {
+      display: inline-block;
+      transform: translateZ(1px);
+    }
+    .lds-circle > div {
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      background: #fff;
+      animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    @keyframes lds-circle {
+      0%, 100% {
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+      }
+      0% {
+        transform: rotateY(0deg);
+      }
+      50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+      }
+      100% {
+        transform: rotateY(3600deg);
+      }
+    }
+    /*lds-circle end */
+
+
+/* lds-dual-ring start */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* lds-dual-ring end */
+
+
+    /* lds-facebook start*/
+    .lds-facebook {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .lds-facebook div {
+      display: inline-block;
+      position: absolute;
+      left: 8px;
+      width: 16px;
+      background: #fff;
+      animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+    .lds-facebook div:nth-child(1) {
+      left: 8px;
+      animation-delay: -0.24s;
+    }
+    .lds-facebook div:nth-child(2) {
+      left: 32px;
+      animation-delay: -0.12s;
+    }
+    .lds-facebook div:nth-child(3) {
+      left: 56px;
+      animation-delay: 0;
+    }
+    @keyframes lds-facebook {
+      0% {
+        top: 8px;
+        height: 64px;
+      }
+      50%, 100% {
+        top: 24px;
+        height: 32px;
+      }
+    }
+    /* lds-facebook end*/
+
+
+/* lds-heart start*/
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+}
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/* lds-heart end*/
+
+
+
+    /* lds-ring start */
+    .lds-ring {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border: 8px solid #fff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #fff transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    /* lds-ring end */
+
+
+
+
+
+/* lds-spinner start */
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #405;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* lds-spinner end */
+
+
+
+
+
+
+/* lds-spinner-s start */
+.lds-spinner-s {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.lds-spinner-s div {
+  transform-origin: 10px 10px;
+  animation: lds-spinner-s 1.2s linear infinite;
+}
+.lds-spinner-s div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 8px;
+    width: 2px;
+    height: 6px;
+    border-radius: 20%;
+    background: #405;
+}
+.lds-spinner-s div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner-s div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner-s div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner-s div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner-s div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner-s div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner-s div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner-s div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner-s div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner-s div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner-s div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner-s div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner-s {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* lds-spinner-s end */
+
+
+/**/
+    /* code run loader start */
+    .lds-editor {
+        display: inline-block;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        align-self: center;
+    }
+    .lds-editor div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        /* margin: 8px; */
+        border: 8px solid #fff;
+        border-radius: 50%;
+        animation: lds-editor 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #405 transparent transparent transparent;
+    }
+    .lds-editor div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    .lds-editor div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .lds-editor div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+    @keyframes lds-editor {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    /* code run loader end */
+/**/
+
+
+/**/
+/**/
+
+
+/**/
+/**/
+
+
+/**/
+/**/
+
+
+/**/
+/**/
+
+
+
+
+
+
+/**/
+.luein-page-adg-loading-background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9990;
+}
+
+.luein-page-adg-spinner {
+    position: var(--dl-position);
+    top: 50%;
+    left: 50%;
+    z-index: 9991;
+}
+.luein-page-adg-spinner-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+.luein-page-adg-spinner-wrapper {
+    display: flex;
+    height: 48px;
+    width: 48px;
+    animation: 1s ease-in-out 0s 1 normal forwards running entry;
+}
+.luein-page-adg-spinner-svg {
+    fill: none;
+    stroke: #C1C7D0;
+    stroke-dasharray: 135px;
+    stroke-dashoffset: 108px;
+    stroke-linecap: round;
+    stroke-width: 5px;
+    transform-origin: center center;
+    animation: .86s cubic-bezier(.4, .15, .6, .85) 0s infinite normal none running spin;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.lui-blanket {
+    opacity: 0;
+    transition: opacity .2s,visibility .2s;
+    transition-delay: .1s;
+    visibility: hidden;
+    background: #000;
+    height: 100%;
+    left: 0px;
+    position: var(--dl-lui-blanket-position);
+    top: 0;
+    width: 100%;
+    z-index: 2500;
+    background-color: #172b4d;
+}
+.lui-blanket[aria-hidden="false"] {
+    opacity: .5;
+    transition: opacity .2s;
+    transition-delay: .1s;
+    visibility: visible;
+}
+
+/**/
+
+
+
+
+/*loader.css end*/

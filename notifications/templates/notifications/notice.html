@@ -1,0 +1,87 @@
+<!-- notice.html -->
+
+
+
+
+<li class="lh-notification  lh-alert-block {% if notice.unread %}lh-alert-{{ notice.level }} lh-alert-unread{% endif %}" onclick="window.location='{% url 'notifications:mark_as_read' notice.slug %}';">
+    <div class="flx nt-card">
+
+        {% comment %}
+        <a class="close pull-right" href="{% url 'notifications:mark_as_read' notice.slug %}">
+            <i class="icon-close">CLOSE</i>
+        </a>
+        {% endcomment %}
+
+        <div class="flx p5 a-i-c">
+            <img alt='user profile picture' height='40' src='/media/{{notice.actor.profile.profile_picture}}' width='40'>
+        </div>
+
+        <div class="flx  flxc flxw p10">
+            <div class="flx flxw">
+                <i class="icon-mail{% if notice.unread %}-alt{% endif %}"></i>
+
+                <span class="name_header rm ">
+                    {{request.user}}
+                    -----
+                    {{notice.recipient}}
+                    {% if notice.actor == request.user %}
+                    You
+                    {% else %}
+                    {{ notice.actor }}
+                    {% endif %}
+                </span>
+
+                <span class="rm">
+                {{ notice.verb }}
+                </span>
+
+                <span class="rm">
+                {{notice.data.job_title}}
+                </span>
+
+                <span class="rm">
+                to
+                </span>
+
+                <span class="rm">
+                {{notice.data.job_status}}
+                </span>
+
+                {% if notice.action_object %}
+                <span class="rm">
+                {{ notice.action_object }}
+                </span>
+                {% endif %}
+
+                {% if notice.target %}
+                <span class="rm">
+                to
+                </span>
+                <span class="rm">
+                {{ notice.target }}
+                </span>
+                {% endif %}
+
+                <div class="flx a-i-c">
+
+                    <div class="flx notice-actions">
+                        <a class="btn" href="{{notice.data.actions.href}}">{{ notice.data.actions.title }}</a>
+
+                        {% comment %}
+                        {% for action in notice.data.actions %}
+                        <a class="btn" href="{{ action.href}}">{{ action.title }}</a>
+                        {% endfor %}
+                        {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            <div class="flx small pt10">
+                <p>{{ notice.timesince }} ago</p>
+                <!--            <p>{{ notice.timestamp|date:"d M, Y" }}</p>-->
+            </div>
+
+        </div>
+
+
+    </div>
+</li>

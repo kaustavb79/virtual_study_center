@@ -1,0 +1,60 @@
+.location_required_div{
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%);
+        margin: 150px auto auto auto;
+}
+.location_required_div_head{
+    font-size: 20px;
+    font-weight: bold;
+    align-self: flex-end;
+    padding: 5px;
+}
+.location_required_div_text_m{
+    padding: 10px 0;
+    color: #666;
+    margin:10px 0 0 0;
+}
+.location_required_div_text_d{
+    padding: 10px 0;
+    color: #666;
+    margin:10px 0 0 0;
+}
+.distance_div{
+    display: flex;
+    justify-content: center;
+}
+.distance_div_inner{
+    padding: 20px;
+    color: #333;
+}
+.distance_div_inner.valid{
+    color: green;
+}
+.distance_div_inner.invalid{
+    color: red;
+}
+.distance_div_inner.not_available{
+    color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* use in form start */
+
+/* use in form end */

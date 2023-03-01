@@ -1,0 +1,27 @@
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+.gm-style-iw > button {
+    display: none !important;
+}
+.popup_div{
+    color: #333;
+}
+.popup_name{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.popup_add{
+    line-height: 18px;
+    font-size: 14px;
+}
+.add_address_div{
+
+}
+.add_address{
+
+}

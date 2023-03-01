@@ -1,0 +1,56 @@
+{% comment %}
+{% endcomment %}
+<!-- to_scad_teach_cnd_att_completed_by_teach.html -->
+
+
+{% load template_tags %}
+<li class="lh-notification  lh-alert-block {% if notice.unread %}lh-alert-{{ notice.level }} lh-alert-unread{% endif %}"
+    onclick="window.location='{% url 'notifications:mark_as_read' notice.slug %}';">
+    <div class="flx nt-card">
+        <div class="lhn_img_div">
+                <svg version="1.1" width="50" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M32.25,143.33333v-114.66667c0,-7.91558 6.41775,-14.33333 14.33333,-14.33333h78.83333c7.91558,0 14.33333,6.41775 14.33333,14.33333v114.66667c0,7.91558 -6.41775,14.33333 -14.33333,14.33333h-78.83333c-7.91558,0 -14.33333,-6.41775 -14.33333,-14.33333z" fill="#455a64"></path><path d="M46.58333,25.08333c-1.97442,0 -3.58333,1.60533 -3.58333,3.58333v114.66667c0,1.978 1.60892,3.58333 3.58333,3.58333h78.83333c1.97442,0 3.58333,-1.60533 3.58333,-3.58333v-114.66667c0,-1.978 -1.60892,-3.58333 -3.58333,-3.58333z" fill="#ffffff"></path><path d="M105.70833,67.09792l-28.26175,28.26533l-11.15492,-11.51325l-8.95833,8.95833l20.47158,20.11325l36.86175,-36.86533z" fill="#4caf50"></path><path d="M96.75,10.75c0,-5.93758 -4.81242,-10.75 -10.75,-10.75c-5.93758,0 -10.75,4.81242 -10.75,10.75v17.91667c0,1.978 1.60533,3.58333 3.58333,3.58333h14.33333c1.978,0 3.58333,-1.60533 3.58333,-3.58333c0,0 0,-17.67658 0,-17.91667z" fill="#90a4ae"></path><path d="M86,7.16667c-1.97902,0 -3.58333,1.60431 -3.58333,3.58333c0,1.97902 1.60431,3.58333 3.58333,3.58333c1.97902,0 3.58333,-1.60431 3.58333,-3.58333c0,-1.97902 -1.60431,-3.58333 -3.58333,-3.58333z" fill="#455a64"></path></g></g></svg>
+<!--                <svg version="1.1" width="50" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M129,14.33333h-35.83333c0,3.94167 -3.225,7.16667 -7.16667,7.16667c-3.94167,0 -7.16667,-3.225 -7.16667,-7.16667h-35.83333c-7.88333,0 -14.33333,6.45 -14.33333,14.33333v114.66667c0,7.88333 6.45,14.33333 14.33333,14.33333h86c7.88333,0 14.33333,-6.45 14.33333,-14.33333v-114.66667c0,-7.88333 -6.45,-14.33333 -14.33333,-14.33333z" fill="#455a64"></path><path d="M129,146.91667h-86c-2.15,0 -3.58333,-1.43333 -3.58333,-3.58333v-114.66667c0,-2.15 1.43333,-3.58333 3.58333,-3.58333h86c2.15,0 3.58333,1.43333 3.58333,3.58333v114.66667c0,2.15 -1.43333,3.58333 -3.58333,3.58333z" fill="#ffffff"></path><path d="M93.16667,14.33333c0,3.94167 -3.225,7.16667 -7.16667,7.16667c-3.94167,0 -7.16667,-3.225 -7.16667,-7.16667h-25.08333v14.33333c0,3.94167 3.225,7.16667 7.16667,7.16667h50.16667c3.94167,0 7.16667,-3.225 7.16667,-7.16667v-14.33333z" fill="#90a4ae"></path><path d="M86,0c-7.88333,0 -14.33333,6.45 -14.33333,14.33333c0,7.88333 6.45,14.33333 14.33333,14.33333c7.88333,0 14.33333,-6.45 14.33333,-14.33333c0,-7.88333 -6.45,-14.33333 -14.33333,-14.33333zM86,21.5c-3.94167,0 -7.16667,-3.225 -7.16667,-7.16667c0,-3.94167 3.225,-7.16667 7.16667,-7.16667c3.94167,0 7.16667,3.225 7.16667,7.16667c0,3.94167 -3.225,7.16667 -7.16667,7.16667z" fill="#90a4ae"></path><path d="M114.66667,89.58333c0,15.76667 -12.9,28.66667 -28.66667,28.66667c-15.76667,0 -28.66667,-12.9 -28.66667,-28.66667c0,-15.76667 12.9,-28.66667 28.66667,-28.66667c15.76667,0 28.66667,12.9 28.66667,28.66667" fill="#4caf50"></path><path d="M82.83592,104.02775l-13.70267,-13.70267l5.06683,-5.06683l8.69317,8.69317l16.727,-16.33642l5.0095,5.12417z" fill="#e8f5e9"></path></g></g></svg>-->
+        </div>
+
+        <div class="lhn_content_container">
+
+            <a class="t-d-n t-a-l c6" href="#">
+                <div class="lhn_content">
+
+                    <div class="">New <strong>attendance</strong> submitted!</div>
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th>Class:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.data.class_name}}-{{notice.data.section}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Period:</th>
+                            <td><div class="pl5 pr5">{{notice.data.period}}</div></td>
+                        </tr>
+                        <tr>
+                            <th>Day:</th>
+                            <td><div class="pl5 pr5">{{notice.data.date|get_day_by_date}} ({{notice.data.date}})</div></td>
+                        </tr>
+                        <tr>
+                            <th>Taken by:</th>
+                            <td><div class="pl5 pr5 t-t-c">{{notice.actor.first_name}} {{notice.actor.last_name}}</div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </a>
+
+
+
+            <div class="lhn_time">
+                <p class="mla">{{ notice.timesince }} ago</p>
+            </div>
+
+        </div>
+
+    </div>
+</li>
+
+

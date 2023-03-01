@@ -1,0 +1,161 @@
+
+
+
+<!-- The Modal -->
+<div class="ct_luein-modal-container dn" style="display: flex;">
+    <!-- Modal content -->
+    <div class="ct_luein-modal-content w80">
+        <div class="ct_luein-modal-header">
+            <div class="ct_luein-modal-header-text">
+                Media Device Test
+            </div>
+            <span class="ct_luein-modal-close dn">×</span>
+        </div>
+
+        <!--Modal body-->
+        <div class="ct_luein-modal-body">
+
+            <div class="container ">
+                <h5 class="device-name">Camera</h5>
+                <div id="pre-local-player" class="player"></div>
+                <p id="device-intro2">Move in front of the camera to check if it works.</p>
+<!--                <div class="input-group mb-3">-->
+<!--                    <div class="input-group-prepend">-->
+<!--                        <button class="btn btn-outline-secondary dropdown-toggle cam-list-btn" type="button"-->
+<!--                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cams-->
+<!--                        </button>-->
+<!--                        <div class="cam-list dropdown-menu"></div>-->
+<!--                    </div>-->
+<!--                    <input type="text" class="cam-input form-control" aria-label="Text input with dropdown button"-->
+<!--                           readonly>-->
+<!--                </div>-->
+
+
+                <h5 class="device-name dn">Microphone</h5>
+
+<!--                available devices list-->
+<!--                <div id="audioList"></div>-->
+<!--                <div id="videoList"></div>-->
+
+
+                <!--audio bar 0-->
+                <meter class="volume_meter dn" id="volumeMeter" low="0.05" high="0.40" min="0" max="0.50"
+                       value="0"></meter>
+
+                <!--audio bar 1-->
+                <div class="progress dn">
+                    <div class="progress-bar audio_check_progress"
+                         role="progressbar"
+                         aria-valuenow="0"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                    ></div>
+                </div>
+
+                <!--audio bar 2 -->
+                <div class="pids-wrapper dn">
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                    <div class="pid"></div>
+                </div>
+
+                <h1 class="check_if_allowed dn"></h1>
+
+                <!--audio bar 3 -->
+                <div class="audio_container_3 dn">
+                    <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <mask id="mask">
+                                <g id="maskGroup"></g>
+                            </mask>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff0a0a;stop-opacity:1"/>
+                                <stop offset="20%" style="stop-color:#f1ff0a;stop-opacity:1"/>
+                                <stop offset="90%" style="stop-color:#d923b9;stop-opacity:1"/>
+                                <stop offset="100%" style="stop-color:#050d61;stop-opacity:1"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+                    </svg>
+                    <h1><a href="https://codepen.io/zapplebee/full/gbNbZE/"></a></h1>
+                </div>
+
+
+
+                <p class="dn" id="device-intro">Produce sounds to check if the mic works.</p>
+                <div class="input-group mb-3 dn cam_dropdown_div">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle mic-list-btn" type="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mics
+                        </button>
+                        <div class="mic-list dropdown-menu">
+                            <a class="dropdown-item" href="#">Default</a>
+                        </div>
+                    </div>
+                    <input type="text" class="mic-input form-control" aria-label="Text input with dropdown button"
+                           readonly>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!--Modal footer-->
+        <div class="ct_luein-modal-footer">
+            <!--            Use buttons as per need-->
+<!--            <button type="submit" class="ct_luein-modal-button finish">-->
+<!--                Finish-->
+<!--            </button>-->
+            <button class="ct_luein-modal-button cancel dn">Close</button>
+        </div>
+
+        <script>
+                {% include 'snippets/connectivity_test/ct_luein-modal-close.js' %}
+                ct_luein_modal_events();
+        </script>
+
+    </div>
+</div>
+
+<!--loading overlay start-->
+<div class="loading-overlay" id="loading-overlay">
+    <div class="loading-overlay-content flx h80">
+        <div class="cnd-row w80 h100 ma a-i-c" id="loading-overlay-container">
+            <div class="colRow w100 flxw " id="vr-record-progress-div">
+                <div class="progress-wpr w100">
+                    <div class="p20">Please wait. Your data is being uploaded...</div>
+                    <progress class="p10" id="vr-record-progress" max="100" value="0"></progress>
+                </div>
+                <div class="loading-div  w100 p10 a-i-c dnone">
+                    <div class="p20">Please wait. Loading...</div>
+                    <div class="lds-spinner ">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--loading overlay end-->
+
+<script>{% include 'snippets/connectivity_test/audio_check.js' %}</script>

@@ -1,0 +1,38 @@
+:root {
+    --text: #0275d8;
+    --border-bottom: #0275d8;
+    --text: #0275d8;
+    --border: #0275d8;
+    --active: #0275d8;
+    --active_icon: #0275d8;
+
+    --background-color: #ecf3f8;
+
+    /*
+    --head_text: #020270;
+    */
+
+    --head_text: #003e72
+    --input_text: #020270;
+}
+
+.c_text{
+    color:var(--text);
+}
+.c_head_text{
+    color:var(--head_text);
+}
+
+
+/*
+#6300a3
+blue == #0275d8
+var(--text) #6300a3
+var(--border) #6300a3
+var(--active) #2e054e
+var(--active_icon) #6300a3
+var(--background-color) #f8ecff
+var(--head_text) #2e054e
+var(--input_text) #2e054e
+
+*/

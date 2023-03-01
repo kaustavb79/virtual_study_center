@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% load pwa %}
+<head>
+    {% progressive_web_app_meta %}
+	<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="vapid-key" content="{{ vapid_key }}">
+    <title>{% block title %}Smart Attendance {% endblock %}</title>
+    <link rel="manifest" href="/manifest.json'"/>
+    <link href="{% static 'website/favicon/lueinanalytics_favicon.jpg' %}" rel="icon" sizes="16x16" type="image/gif">
+
+    <!-- place this in a head section -->
+    <link rel="apple-touch-icon" href="{% static 'website/pwa/icons/apple/lueinanalytics_favicon.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'website/pwa/icons/apple/lueinanalytics_favicon_152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'website/pwa/icons/apple/lueinanalytics_favicon_180.png' %}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{% static 'website/pwa/icons/apple/lueinanalytics_favicon_167.png' %}">
+
+    <link href="{% static 'website/pwa/splash_screen/apple/iphone5_splash.png' %}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/iphone6_splash.png' %}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/iphoneplus_splash.png' %}" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/iphonex_splash.png' %}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/iphonexr_splash.png' %}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/iphonexsmax_splash.png' %}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/ipad_splash.png' %}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/ipadpro1_splash.png' %}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/ipadpro3_splash.png' %}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{% static 'website/pwa/splash_screen/apple/ipadpro2_splash.png' %}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+
+    <style>{% include 'snippets/css/normalise.css' %}</style>
+    <style>{% include 'snippets/css/base.css' %}</style>
+
+    <style> {% include 'snippets/css/employer.css' %} </style>
+    <style> {% include 'snippets/css/candidate.css' %} </style>
+    <style> {% include 'snippets/css/admin.css' %} </style>
+    <style> {% include 'snippets/css/root_color.css' %} </style>
+    <style> {% include 'snippets/css/checkbox_toggle.css' %} </style>
+
+    <script type="text/javascript" src="{% static '/js/jquery-3.4.0.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/jquery.detect_swipe.js' %}"></script>
+
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>-->
+
+    <style>{% include 'snippets/alerts/alert.css' %}</style>
+    <script>{% include 'snippets/alerts/alert.js' %}</script>
+
+    <style>{% include 'snippets/js_files/utility/dynamic-loader/dynamic-loader.css' %}</style>
+    <script>{% include 'snippets/js_files/utility/dynamic-loader/dynamic-loader.js' %}</script>
+
+
+
+    <script>{% include 'snippets/js_files/utility/dynamic-confirmation/dynamic-confirmation.js' %}</script>
+    <style>{% include 'snippets/js_files/utility/dynamic-confirmation/dynamic-confirmation.css' %}</style>
+
+
+    <style>{% include 'snippets/connectivity_test/connectivity_test.css' %}</style>
+    <style>{% include 'snippets/connectivity_test/ct_luein-modal.css' %}</style>
+
+    <script>{% include 'snippets/connectivity_test/ct_luein-modal-functions.js' %}</script>
+    <script>{% include 'snippets/connectivity_test/connectivity_test.js' %}</script>
+    <script>{% include 'snippets/connectivity_test/DetectRTC.1.4.1.js' %}</script>
+    <script>{% include 'snippets/connectivity_test/RecordRTC.v5.6.2.js' %}</script>
+
+
+    <!--Modal-->
+    <style>{% include 'snippets/luein-modal/luein-modal.css' %}</style>
+    <script>{% include 'snippets/luein-modal/luein-modal-functions.js' %}</script>
+
+
+    <!--table colspan if no data to show-->
+    <script>{% include 'snippets/js_files/utility/no_data_to_show.js' %}</script>
+    <script type="text/javascript" src="{% static 'translate/google_translate.js' %}"></script>
+
+    {% block head %} {% endblock %}
+</head>
+<body class="body-class google_translate_element" id="body-id">
+<div id="alert-div"></div>
+<div id="body-div">
+    <!--notification sound-->
+    <audio id="sound_audio_id" src="{% static 'website/sound/clearly-602.m4r' %}" preload="auto"></audio>
+    <script>{% include 'snippets/js_files/utility/sound_play.js' %}</script>
+
+    {% include 'snippets/notifications/notifications.html' %}
+    {% include 'snippets/top_nav_bar/top_nav.html' %}
+    {% include 'snippets/top_nav_bar/side-nav-bar.html' %}
+
+    {% include 'snippets/connectivity_test/connectivity_test.html' %}
+
+
+    <div class="main-class-div">
+        <div class="main">
+            <main id="main-tag">
+                {% if user.is_authenticated %}
+<!--                    {% include 'snippets/top_nav_bar/sub_nav_nav.html' %}-->
+                {% endif %}
+
+                {% block content %}
+                {% endblock %}
+
+            </main>
+        </div>
+        {% if user.is_authenticated %}
+            {% include 'snippets/footer/luein-footer-small.html' %}
+        {% else %}
+            {% if 'login' in request.path or 'contact-us' in request.path or 'signup' in request.path%}
+
+            {% else %}
+                {% include 'snippets/footer/luein-footer-big.html' %}
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="app_status"></div>
+    {% block javascript %}{% endblock %}
+    <script type="text/javascript">
+        {% include 'base.js'%}
+    </script>
+</div>
+</body>
+</html>

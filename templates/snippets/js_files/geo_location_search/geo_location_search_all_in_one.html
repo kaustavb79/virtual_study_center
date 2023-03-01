@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Map and search location</title>
+    <style>
+        #map {
+          height: 400px;
+          /* The height is 400 pixels */
+          width: 100%;
+          /* The width is the width of the web page */
+        }
+        .gm-style-iw > button {
+  display: none !important;
+}
+.popup_div{
+  color: #333;
+}
+.popup_name{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.popup_add{
+    line-height: 18px;
+    font-size: 14px;
+}
+.add_address_div{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.add_address_btn{
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: fit-content;
+    display: flex;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add_address_btn:hover{
+    background-color: #007bffde;
+
+}
+
+    </style>
+<!--    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback&libraries=places"></script>
+
+</head>
+<body>
+<h3>Show Map and search location</h3>
+    <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />
+    <input type="hidden" id="city2" name="city2" />
+    <input type="hidden" id="cityLat" name="cityLat" />
+    <input type="hidden" id="cityLng" name="cityLng" />
+
+<!--The div element for the map -->
+<div id="map"></div>
+<script>
+var map;
+var markers = [];
+function initMap() {
+  // The location of Uluru
+  const uluru = { lat: 13.7460, lng: 0 };
+
+  // The map, centered at Uluru
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 2,
+	center: uluru,
+  });
+
+<!--  // The marker, positioned at Uluru-->
+<!--  const marker = new google.maps.Marker({-->
+<!--    position: uluru,-->
+<!--    map: map,-->
+<!--  });-->
+}
+window.initMap = initMap;
+initMap()
+</script>
+<script>
+var place_obj;
+    function initialize() {
+      var input = document.getElementById('searchTextField');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            place_obj = place;
+            document.getElementById('city2').value = place.name;
+            document.getElementById('cityLat').value = place.geometry.location.lat();
+            document.getElementById('cityLng').value = place.geometry.location.lng();
+
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            var location_name = place.name;
+            // alert(lat+' '+lng)
+
+            var search_location = { lat: lat, lng: lng, title:location_name }
+            // const marker = new google.maps.Marker({
+            //    position: search_location,
+            //    map: map,
+            //    title: location_name,
+            //  });
+              deleteMarkers();
+              addMarker(search_location, place)
+
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<script>
+// function addMarker(data) {
+//    var marker = new google.maps.Marker({
+//      position: new google.maps.LatLng(data.lat, data.lng),
+//      map: map
+//    });
+</script>
+<script>
+    // Adds a marker to the map and push to the array.
+function addMarker(position, place) {
+  const marker = new google.maps.Marker({
+    position,
+    map,
+    title: position.title,
+    draggable: true,
+  });
+  markers.push(marker);
+
+  setZoom(map, position)
+  addPopup(marker, place)
+
+}
+
+function get_popup_content(place){
+	var name = place.name;
+	var adr_address = place.adr_address;
+    var formatted_address = place.formatted_address;
+    var content = `
+        <div class="popup_div">
+            <div class="popup_name">${name}</div>
+            <div class="popup_add">${formatted_address}</div>
+            <div class="add_address_div">
+            	<button class="button js_create_geolocation pt5 pr10 pb5 pl10 mr2"
+                        data-url="{% url 'app_root:geolocation_create' %}" data-action_type="create"
+                        type="button">Add Location
+                </button>
+            </div>
+        </div>
+    `;
+
+    return content;
+}
+
+function add_location_event(){
+	$(".js_create_geolocation").unbind("click.js_create_geolocation", js_create_geolocation_fn)
+    	$(".js_create_geolocation").bind("click.js_create_geolocation", js_create_geolocation_fn)
+}
+
+function js_create_geolocation_fn(){
+	show_info(place_obj)
+}
+
+function addPopup(marker, place){
+ var content = get_popup_content(place)
+
+  var popup = new google.maps.InfoWindow({
+    content: content,
+    maxWidth: 300
+  });
+
+  popup.open(map, marker);
+
+  add_location_event();
+}
+
+function setZoom(map, pt){
+// set zoom
+  map.setCenter(pt);
+  map.setZoom(15);
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function hideMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  hideMarkers();
+  markers = [];
+}
+</script>
+
+<script>
+function show_info(place_data){
+	var display_name = place_data.display_name;
+	var adr_address = place_data.address;
+    var formatted_address = place_data.formatted_address;
+    var radius = place_data.radius_allowed;
+    var radius_unit = place_data.radius_unit;
+    alert(display_name)
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

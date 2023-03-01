@@ -1,0 +1,96 @@
+
+
+/* HOME footer big start */
+
+.footer-big{
+    bottom: 0;
+    width: 100%;
+
+}
+
+.homefootercontainer{
+    text-align:center;
+    color: #405;
+    padding:20px;
+    line-height: 20px;
+}
+.head_text{
+    color:#7e5ae6;
+    font-size:35px;
+    font-weight:bold;
+}
+.homefooterdiv{
+    display:flex;
+    border-bottom:1px solid #405;
+}
+.homefooterleftblock{
+    display:flex;
+    flex-direction:column;
+    width:45%;
+    padding:20px 0;
+}
+.homefooterlogo{
+    background-image: url(/static/website/logo/LueinHire.png);
+    width: 100px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.homefootermidblock{
+    display:flex;
+    flex-direction:column;
+    width:30%;
+    padding:20px;
+}
+.homefootermidblock ul{
+      list-style-type: none;
+}
+.homefootermidblock li a{
+      color: #405;
+      transition: color .2s;
+      text-decoration:none;
+}
+.homefootermidblock li a:hover{
+    color:#4180CB;
+}
+
+.homefooterrightblock{
+    display:flex;
+    flex-direction:column;
+    width:35%;
+    padding:20px 0;
+}
+.homefooterhead{
+    font-size:20px;
+    padding:10px;
+}
+.homefootercontent{
+
+}
+.copyrightdiv{
+    padding:5px 0;
+}
+.copyrighttext{
+
+}
+
+@media screen and (max-width: 768px) {
+    .homefooterdiv{
+        flex-wrap:wrap;
+    }
+    .homefooterleftblock{
+        width:100%
+    }
+    .homefootermidblock{
+        width:100%
+    }
+    .homefooterrightblock{
+        width:100%
+    }
+}
+/* HOME footer big end */

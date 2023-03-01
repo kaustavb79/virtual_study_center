@@ -1,0 +1,316 @@
+/*********************************/
+/******admin-home.css start*******/
+/*********************************/
+
+
+
+.heading{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 6px;
+    background-color: #405;
+    color: white;
+}
+
+.subheading{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+    background-color: #787878;
+    color: white;
+    width:90%;
+    margin:auto;
+}
+
+#admin-outer-div {
+  padding: 10px 16px;
+  background-color: white;
+  color: black;
+}
+
+#admin-outer-div label{
+    color: black;
+    width: 40%;
+    margin: auto 0;
+}
+
+#admin-outer-div p{
+    display:flex;
+
+}
+
+#admin-outer-div input{
+    width: 100%;
+    padding: 1% 0%;
+    margin: 1% 0%;
+}
+
+#admin-outer-div select{
+    width: 100%;
+    padding: 1% 0%;
+    margin: 2% 0%;
+}
+
+#admin-uploadbtn-div{
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+/******admin-home.css end*******/
+
+
+
+
+/********************************************/
+/******admin-analysed-videos.css start*******/
+/********************************************/
+#all-admin-analysed-video-container{
+   /* border:1px solid blue; */
+}
+#registered-users{
+    width:90%;
+    margin:auto;
+}
+
+/******admin-analysed-videos.css start*******/
+
+
+/***********************************************/
+/******admin-emp-approval-request.css start*****/
+/***********************************************/
+#all-admin-emp-approval-container{
+    /*margin: 0 0 0 45px;
+    padding:60px 5px 5px 5px;*/
+}
+#toggle-user-view{
+    width:90%;
+    margin:auto;
+    padding:0px;
+    overflow:auto;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    #toggle-user-view{
+        /*display:none;*/
+    }
+}
+@media screen and (max-width: 425px) {
+    #toggle-user-view{
+        width:95%;
+    }
+}
+
+#activate-messages{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    position: fixed;
+    left: 25%;
+    top: 55px;
+}
+.msg{
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.activated{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.deactivated{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.status{
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    display: inline-block;
+    font-size: 75%;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 25px;
+}
+.status-deactivate{
+    color: #fff;
+    background-color: #d92550;
+}
+.status-yet-to-give{
+    color: #fff;
+    background-color: #b7b0b2;
+}
+.status-incomplete{
+    color: #313131;
+    background-color: #FFBF00;
+}
+
+.status-active{
+    color: #fff;
+    background-color: #3ac47d;
+}
+
+.status-pub{
+    color: #fff;
+    background-color: #a574e2;
+    border-color: #bee5eb;
+}
+
+.status-new{
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.status-oapp{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.status-capp{
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.status-closed{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.status-archived{
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+
+.status-warning {
+    color: #212529;
+    background-color: #f7b924;
+}
+.status-danger {
+    color: #fff;
+    background-color: #d92550;
+}
+.status-info{
+    color: #fff;
+    background-color: #5bc0de;
+}
+
+.a-d-btn{
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 7px 8px;
+    display: inline-block;
+    font-size: 75%;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+.btn-danger{
+    color: #fff;
+    background-color: #6100da;
+}
+.btn-disable{
+    cursor: not-allowed;
+}
+.btn-success{
+    color: #fff;
+    background-color: #6100da;
+}
+
+.admin-cnd-dash{
+    width:90%;
+    margin:auto;
+    display:flex;
+    border: 1px solid #eaeaea;
+}
+.admin-cnd-dash-tile{
+    padding:6px;
+    display:flex;
+    align-items: center;
+    margin:auto;
+    border-bottom:2px solid #ffffff00;
+}
+.total-value{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+.total-cnd{
+    color:#00bcd4;
+}
+.total-cnd-vr{
+    color:blue;
+}
+.total-cnd-vr-response{
+    color:#405;
+}
+.cnd-fafa svg g{
+    fill:#00bcd4;
+}
+.vr-fafa svg g{
+    fill:blue;
+}
+.vr-response-fafa svg g{
+    fill:#405;
+}
+#all:hover{
+    border-bottom:2px solid #00bcd4;
+}
+#vr:hover{
+    border-bottom:2px solid blue;
+}
+#vrr:hover{
+    border-bottom:2px solid #405;
+}
+#act:hover{
+    border-bottom:2px solid #3ac47d;
+}
+#inact:hover{
+    border-bottom:2px solid #d92550;
+}
+#ytl:hover{
+    border-bottom:2px solid #b7b0b2;
+}
+
+/******admin-emp-approval-request.css end*****/
+
+/***********************************************/
+/******admin-analysis-container.css start*****/
+/***********************************************/
+
+#all-admin-analysis-container{
+    /*margin: 0 0 0 45px;
+    padding:5px 5px 5px 5px;*/
+}
+#aa-video-container{
+    text-align:center;
+}
+/******admin-report-tiles.css end*****/
+
+/***********************************************/
+/******admin-analysis-container.css start*****/
+/***********************************************/
+
+.report-tiles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0275d8;
+    width: 500px;
+    height: 50px;
+    padding:5px 5px 5px 5px;
+    margin:10px;
+}
+/******admin-analysis-container.css end*****/
+

@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!--    <script src="geo_location.js"></script>-->
+</head>
+<body>
+
+<button class="find-state">Check in</button>
+<div class="map_div_inner" id="m1"></div>
+<script>
+const getLocation = () => {
+    // get the location from the user
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition, showError, options);
+    }else{
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+const options = {
+    enableHihAccuracy:true,
+    timeout:5000,
+    maximumAge:0
+}
+const showPosition = (position) => {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    console.warn(lat, long)
+    sample(lat, long)
+
+}
+
+const showError = (error) => {
+    console.warn(error)
+    switch(error.code){
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.")
+            break;
+
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.")
+            break;
+
+        case error.TIMEOUT:
+            alert("The request to get user location time out.")
+            break;
+
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.")
+            break;
+
+        default:
+            alert("An unknown error occurred.")
+    }
+}
+document.querySelector('.find-state').addEventListener('click', getLocation)
+
+// LOGIC 2 start
+var i, lat1, lon1, lat2, lon2, distance_km, distance_meter, status, user_radius;
+
+// set school lat long
+//const school_lat_lon = {
+//    "lat":28.7026156,
+//    "lon":77.1036564
+//}
+const school_lat_lon = {
+    "lat":28.703426,
+    "lon":77.105662
+}
+
+
+// set radius allowed in meter
+const radius_allowed = 100;
+
+
+function sample(lat, long) {
+    if(lat, long){
+        console.warn("lat---"+lat)
+        console.warn("long---"+long)
+
+        // home
+        lat = 28.7026156;
+        long = 77.1036564;
+
+        var myLatlng = new google.maps.LatLng(lat, long);
+        console.warn(myLatlng)
+        var choice1 = {
+            center: myLatlng,
+            zoom:15,
+            mapTypes: google.maps.MapTypeId.ROADMAP
+        };
+
+        i = new google.maps.Map(document.getElementById("m1"),choice1);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: i,
+            title: "Hello World!",
+        });
+
+        // user
+        lat1 = lat;
+        lon1 = long;
+
+        // school
+        lat2 = school_lat_lon["lat"];
+        lon2 = school_lat_lon["lon"];
+
+        distance_km = calcCrow(lat1, lon1, lat2, lon2)
+        distance_meter = distance_km * 1000;
+        alert("distance_meter "+ distance_meter)
+
+        if(distance_meter<=radius_allowed){
+            status = true;
+        }else{
+            status = false;
+        }
+        user_radius = 15;
+
+        drawOnclick(lat1, lon1, user_radius, status)
+
+
+        drawOnclick(lat2, lon2, radius_allowed, status)
+
+
+
+    }else{
+
+    }
+
+}
+
+
+
+
+ function drawOnclick(lat, long, radius, status) {
+    var strokeColor = "#333";
+    var fillColor = "#bababa";
+
+    if(status == "true"){
+        strokeColor = "green";
+        fillColor = "green";
+    }else if(status == "false"){
+        strokeColor = "red";
+        fillColor = "red";
+    }
+
+    console.warn(lat, long, radius, status)
+
+    // alert("clicked");
+    var antennasCircle = new google.maps.Circle({
+      strokeColor: strokeColor,
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: fillColor,
+      fillOpacity: 0.35,
+      map: i,
+      center: {
+        lat: lat,
+        lng: long
+      },
+      radius: radius
+    });
+    i.fitBounds(antennasCircle.getBounds());
+  }
+
+
+//alert(calcCrow(28.7026156,77.1036564,28.701812, 77.106728).toFixed(1));
+
+
+
+//This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
+function calcCrow(lat1, lon1, lat2, lon2)
+{
+  const R = 6371; // earth radius in km
+  var dLat = toRad(lat2-lat1);
+  var dLon = toRad(lon2-lon1);
+  var lat1 = toRad(lat1);
+  var lat2 = toRad(lat2);
+
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c;
+  return d;
+}
+
+// Converts numeric degrees to radians
+function toRad(Value)
+{
+    return Value * Math.PI / 180;
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=sample"></script>
+</body>
+</html>

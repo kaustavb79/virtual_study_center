@@ -1,0 +1,75 @@
+{
+	"short_name": "Smart Attendance",
+	"name": "Luein Analytics Smart Attendance App",
+	"icons": [{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_256.png",
+			"type": "image/png",
+			"sizes": "256x256",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_16.png",
+			"type": "image/png",
+			"sizes": "16x16",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon.png",
+			"type": "image/png",
+			"sizes": "32x32",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_64.png",
+			"type": "image/png",
+			"sizes": "64x64",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_128.png",
+			"type": "image/png",
+			"sizes": "128x128",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/other/lueinanalytics_favicon_192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/apple/lueinanalytics_favicon_167.png",
+			"type": "image/png",
+			"sizes": "167x167",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/apple/lueinanalytics_favicon_180.png",
+			"type": "image/png",
+			"sizes": "180x180",
+			"purpose": "any"
+		},
+		{
+			"src": "/static/website/pwa/icons/apple/lueinanalytics_favicon_152.png",
+			"type": "image/png",
+			"sizes": "152x152",
+			"purpose": "any"
+		}
+	],
+	"id": "/",
+	"start_url": "/",
+	"background_color": "#ffffff",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#f0f4fa",
+	"description": "Luein Analytics AI based Smart Attendance System",
+	"gcm_sender_id": "1053954678243",
+	"gcm_user_visible_only": true,
+	"prefer_related_applications": false
+}
